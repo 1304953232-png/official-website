@@ -4,6 +4,7 @@ import {
   Blocks,
   BrainCircuit,
   Building2,
+  CalendarDays,
   CircuitBoard,
   Cpu,
   Factory,
@@ -16,20 +17,21 @@ import {
   Rocket,
   ShieldCheck,
   Sparkles,
+  Trophy,
   Users,
   Workflow
 } from "lucide-react";
 
 export const navItems = [
-  { label: "About", href: "#about" },
-  { label: "What We Do", href: "#what-we-do" },
-  { label: "Venture Studio", href: "#venture-studio" },
-  { label: "Ecosystem", href: "#ecosystem" },
-  { label: "Focus Areas", href: "#focus-areas" },
-  { label: "Case Study", href: "#case-study" },
-  { label: "Fund", href: "#fund" },
-  { label: "Team", href: "#team" },
-  { label: "Contact", href: "#contact" }
+  { label: "About", href: "/about" },
+  { label: "What We Do", href: "/what-we-do" },
+  { label: "Venture Studio", href: "/venture-studio" },
+  { label: "Ecosystem", href: "/ecosystem" },
+  { label: "Focus Areas", href: "/focus-areas" },
+  { label: "Case Study", href: "/case-studies" },
+  { label: "Fund", href: "/capital" },
+  { label: "Team", href: "/team" },
+  { label: "Contact", href: "/contact" }
 ];
 
 export const aboutCards = [
@@ -104,6 +106,71 @@ export const ecosystemCards = [
   { title: "校友创始人网络", text: "通过高校校友会、行业俱乐部等组织深度触达全球校友，重点筛选具备扎实技术背景、商业嗅觉和产业资源的创始人。", icon: Users },
   { title: "产业与资本协同", text: "联动高校校友基金、校内孵化器、校企合作平台、早期投资机构、产业资本和企业家资源，为项目提供融资、场景和订单支持。", icon: Handshake },
   { title: "政策与落地支持", text: "围绕工商注册、园区选址、政策申报、政府补贴和合规治理，帮助初创企业降低运营成本和试错成本。", icon: Landmark }
+];
+
+export const activityStats = [
+  ["100+", "北京大学 AI 创业营报名项目"],
+  ["360+", "海聚英才北京赛区全球人才项目"],
+  ["150+", "海聚英才决赛现场生态代表"],
+  ["100+", "大湾区创业大赛北京站参与者"],
+  ["40+", "AI 宁波北京宣讲高层次人才"],
+  ["12", "AI 宁波北京宣讲投资机构代表"]
+].map(([value, label]) => ({ value, label }));
+
+export const activityPrograms = [
+  {
+    title: "北京大学 AI 创业营",
+    tag: "AI Venture Camp",
+    text: "面向北大全校征集人工智能创业项目，吸引超过 100 个项目报名，覆盖机器人、脑机接口、AI4S、智慧医疗、类脑芯片等硬核科技方向，并出现天使轮估值达 5 亿元人民币的明星初创企业。",
+    metrics: ["100+ 报名项目", "AI4S / 机器人 / 智慧医疗", "5 亿估值项目"],
+    icon: BrainCircuit
+  },
+  {
+    title: "杭州 AI 创新之旅",
+    tag: "AI Innovation Journey",
+    text: "组织创业者走进宇树科技、阿里总部、云深处、图灵小镇、浙大强鹰及北大信息技术高等研究院，结合闭门晚宴、投资活动和工程创业教授分享，形成跨城市技术、产业与资本连接。",
+    metrics: ["六小龙参访", "阿里 / 浙大 / 北大信研院", "CEO 闭门晚宴"],
+    icon: Globe2
+  },
+  {
+    title: "中关村百校联盟创客大赛",
+    tag: "University Startup Competition",
+    text: "围绕人工智能、智能智造等新兴产业集群，在清北、矿大（北京）、国科大等赛区发现高水平创新创业团队，推动高校项目接受产业界、学术界和投资界联合评审。",
+    metrics: ["清北赛区", "矿大赛区", "国科大赛区"],
+    icon: Trophy
+  },
+  {
+    title: "第五届“海聚英才”全球创新创业大赛",
+    tag: "Global Talent Competition",
+    text: "北京赛区吸引全球 10 余个国家的 360 余个人才项目参赛，人工智能项目超过三分之一，创始团队具海外背景项目占比超 50%，现场汇聚高校、园区、投资机构与人力资源服务机构等 150 余名代表。",
+    metrics: ["360+ 人才项目", "10+ 国家", "150+ 生态代表"],
+    icon: Users
+  },
+  {
+    title: "粤港澳大湾区创业大赛北京站",
+    tag: "Greater Bay Area Roadshow",
+    text: "以“湾创未来 粤聚英才”为主题，在北京组织省外宣介活动，连接政府部门、高校、孵化基地、创业团队、投融资机构及行业协会代表，现场吸引 100 余人参与。",
+    metrics: ["北京站", "100+ 参与者", "政府 / 高校 / 资本"],
+    icon: Network
+  },
+  {
+    title: "第二届“AI 宁波”人工智能赋能产业大赛",
+    tag: "AI Industry Enablement",
+    text: "北京宣讲活动汇聚 40 位人工智能领域高层次人才、12 位投资机构代表，以及北京大学 AI 创业营、北京大学创新学社等百余位嘉宾，聚焦具身智能机器人、智能网联汽车、人工智能芯片等赛道。",
+    metrics: ["40 位 AI 人才", "12 家投资机构", "6 大产业赛道"],
+    icon: CalendarDays
+  }
+];
+
+export const yanYuanEcosystem = [
+  { title: "燕缘 Lab", text: "联合政府与市场化资本探索拨投联动，支持有组织的超前孵化与概念验证。" },
+  { title: "燕缘孵化器", text: "聚焦成果转化和科学家服务的专业孵化载体，深化企业培育服务。" },
+  { title: "燕缘国际科创大赛", text: "生态化整合北大资源，建设国际一流科创交流服务平台和优质项目池。" },
+  { title: "燕缘创投", text: "延续元培基金实践基础，投早、投小、投原始创新，做耐心资本。" },
+  { title: "燕缘 HUB", text: "建设北大系科创人才社区，连接培训、猎头、创业服务和长期社群力量。" },
+  { title: "燕缘科创评论", text: "聚焦全球科技成果转化的专业智库与媒体，讲好科创故事，传播科创力量。" },
+  { title: "燕缘会客厅", text: "打造城市级北大人会客空间，服务北大人及北大之友交流与合作。" },
+  { title: "燕缘公益", text: "拓展公益项目，反哺北大、服务行业进步，做更多难而正确且专业的事。" }
 ];
 
 export const sourcingMix = [

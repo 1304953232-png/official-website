@@ -33,11 +33,13 @@
 html {
   scroll-behavior: auto;
   background: var(--background);
+  overflow-x: clip;
 }
 
 body {
   margin: 0;
   min-height: 100vh;
+  overflow-x: clip;
   background:
     radial-gradient(circle at 10% 0%, rgba(110, 139, 255, 0.14), transparent 28rem),
     radial-gradient(circle at 88% 8%, rgba(200, 169, 106, 0.13), transparent 24rem),
@@ -45,6 +47,26 @@ body {
   color: var(--foreground);
   font-family: Inter, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
   text-rendering: geometricPrecision;
+}
+
+@supports not (overflow: clip) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 120px 120px;
+  mask-image: linear-gradient(to bottom, black, transparent 82%);
 }
 
 button,
@@ -108,6 +130,258 @@ select {
   background: linear-gradient(90deg, transparent, rgba(200, 169, 106, 0.9), transparent);
 }
 
+.hero-stage {
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(110, 139, 255, 0.34), transparent 44rem),
+    radial-gradient(circle at 72% 8%, rgba(53, 225, 255, 0.16), transparent 34rem),
+    linear-gradient(180deg, rgba(8, 13, 28, 0.6), transparent 54%);
+}
+
+.hero-aurora,
+.hero-orb,
+.wow-orbit,
+.wow-beam {
+  position: absolute;
+  pointer-events: none;
+}
+
+.hero-aurora {
+  filter: blur(54px);
+  mix-blend-mode: screen;
+  opacity: 0.9;
+}
+
+.hero-aurora-main {
+  left: 50%;
+  top: 6%;
+  width: min(112vw, 1260px);
+  height: min(72vw, 720px);
+  transform: translateX(-50%);
+  background:
+    radial-gradient(circle at 28% 45%, rgba(110, 139, 255, 0.82), transparent 34%),
+    radial-gradient(circle at 70% 42%, rgba(200, 169, 106, 0.54), transparent 35%),
+    radial-gradient(circle at 50% 70%, rgba(53, 225, 255, 0.38), transparent 32%);
+}
+
+.hero-aurora-secondary {
+  right: -12%;
+  top: 18%;
+  width: 680px;
+  height: 680px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(53, 225, 255, 0.32), transparent 66%);
+}
+
+.hero-orb {
+  width: 230px;
+  height: 230px;
+  border-radius: 999px;
+  border: 1px solid rgba(200, 169, 106, 0.22);
+  background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.18), rgba(200, 169, 106, 0.08), transparent 64%);
+  box-shadow:
+    0 0 90px rgba(200, 169, 106, 0.22),
+    inset 0 0 48px rgba(110, 139, 255, 0.12);
+  filter: blur(0.2px);
+}
+
+.hero-orb-left {
+  left: 7vw;
+  bottom: 16vh;
+}
+
+.hero-orb-right {
+  right: 9vw;
+  top: 24vh;
+}
+
+.hero-noise {
+  opacity: 0.09;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.85) 0.6px, transparent 0.6px);
+  background-size: 4px 4px;
+  mix-blend-mode: overlay;
+}
+
+.opening-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  overflow: hidden;
+  pointer-events: auto;
+  background: transparent;
+}
+
+.opening-transition__slice {
+  position: absolute;
+  left: -14%;
+  width: 128%;
+  background:
+    linear-gradient(90deg, rgba(3, 5, 8, 0.98), rgba(11, 16, 32, 0.98)),
+    radial-gradient(circle at 50% 50%, rgba(110, 139, 255, 0.16), transparent 44%);
+  border-top: 1px solid rgba(255, 255, 255, 0.035);
+  border-bottom: 1px solid rgba(200, 169, 106, 0.05);
+  box-shadow: 0 0 38px rgba(0, 0, 0, 0.36);
+  will-change: transform, opacity;
+}
+
+.opening-transition__slice:nth-child(even) {
+  background:
+    linear-gradient(90deg, rgba(5, 8, 14, 0.98), rgba(3, 5, 8, 0.98)),
+    radial-gradient(circle at 42% 50%, rgba(200, 169, 106, 0.12), transparent 46%);
+}
+
+.route-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 95;
+  overflow: hidden;
+  pointer-events: auto;
+  background: transparent;
+}
+
+.route-transition__slice {
+  position: absolute;
+  left: -14%;
+  width: 128%;
+  background:
+    linear-gradient(90deg, rgba(3, 5, 8, 0.99), rgba(9, 14, 28, 0.985)),
+    radial-gradient(circle at 56% 50%, rgba(110, 139, 255, 0.16), transparent 42%);
+  border-top: 1px solid rgba(255, 255, 255, 0.035);
+  border-bottom: 1px solid rgba(200, 169, 106, 0.055);
+  box-shadow: 0 0 28px rgba(0, 0, 0, 0.36);
+  will-change: transform, opacity;
+}
+
+.route-transition__slice:nth-child(odd) {
+  background:
+    linear-gradient(90deg, rgba(6, 9, 16, 0.99), rgba(3, 5, 8, 0.985)),
+    radial-gradient(circle at 44% 50%, rgba(200, 169, 106, 0.12), transparent 44%);
+}
+
+.route-transition__grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.08;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.8) 0.6px, transparent 0.6px);
+  background-size: 4px 4px;
+  pointer-events: none;
+}
+
+.glow-cta {
+  position: relative;
+  overflow: hidden;
+  transform: translateZ(0);
+}
+
+.glow-cta::before {
+  position: absolute;
+  inset: -2px;
+  content: "";
+  background:
+    linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.2) 42%, transparent 58%),
+    radial-gradient(circle at var(--shine-x, 50%) 50%, rgba(255, 255, 255, 0.42), transparent 28%);
+  opacity: 0;
+  transform: translateX(-38%);
+  transition: opacity 260ms ease;
+}
+
+.glow-cta:hover::before {
+  opacity: 1;
+  animation: cta-sweep 900ms ease;
+}
+
+.magnetic-button {
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.magnetic-button:hover {
+  border-color: rgba(200, 169, 106, 0.68);
+  box-shadow:
+    0 0 0 1px rgba(200, 169, 106, 0.12),
+    0 0 34px rgba(110, 139, 255, 0.14),
+    0 0 38px rgba(200, 169, 106, 0.12);
+}
+
+.glow-cta > * {
+  position: relative;
+  z-index: 1;
+}
+
+[data-reveal-item] {
+  will-change: transform, opacity;
+}
+
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+}
+
+.spotlight-card::before {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  content: "";
+  background:
+    radial-gradient(520px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(110, 139, 255, 0.28), transparent 44%),
+    radial-gradient(340px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(200, 169, 106, 0.24), transparent 48%);
+  opacity: var(--spotlight-opacity, 0);
+  transition: opacity 220ms ease;
+}
+
+.spotlight-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.spotlight-card:hover {
+  border-color: rgba(200, 169, 106, 0.58);
+  box-shadow:
+    0 34px 96px rgba(0, 0, 0, 0.42),
+    0 0 0 1px rgba(200, 169, 106, 0.22),
+    0 0 68px rgba(110, 139, 255, 0.2);
+  transform: translateY(-12px);
+}
+
+.wow-section {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(110, 139, 255, 0.16), transparent 30rem),
+    radial-gradient(circle at 80% 70%, rgba(200, 169, 106, 0.12), transparent 28rem),
+    linear-gradient(180deg, rgba(11, 16, 32, 0.1), rgba(11, 16, 32, 0.82));
+}
+
+.wow-orbit {
+  inset: 12% 6%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  transform: rotate(-8deg);
+  box-shadow: inset 0 0 80px rgba(110, 139, 255, 0.08);
+}
+
+.wow-beam {
+  left: 12%;
+  right: 12%;
+  top: 50%;
+  height: 1px;
+  transform-origin: left center;
+  background: linear-gradient(90deg, transparent, rgba(110, 139, 255, 0.85), rgba(200, 169, 106, 0.8), transparent);
+  box-shadow: 0 0 42px rgba(110, 139, 255, 0.45);
+}
+
+@keyframes cta-sweep {
+  from {
+    transform: translateX(-62%);
+  }
+
+  to {
+    transform: translateX(62%);
+  }
+}
+
 .focus-ring {
   outline: none;
 }
@@ -125,4 +399,15 @@ select {
     scroll-behavior: auto !important;
     transition-duration: 0.001ms !important;
   }
+}
+
+@media (max-width: 767px) {
+  .hero-aurora {
+    filter: blur(30px);
+  }
+
+  .hero-orb {
+    display: none;
+  }
+
 }

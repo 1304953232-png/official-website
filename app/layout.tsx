@@ -1,6 +1,10 @@
 ﻿import type { Metadata } from "next";
 import "./globals.css";
+import { InteractionEffects } from "@/components/interaction-effects";
+import { RouteTransition } from "@/components/route-transition";
 import { SmoothScroll } from "@/components/smooth-scroll";
+import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
 
 export const metadata: Metadata = {
   title: "YAN VENTURES / 燕南创新 | AI Venture Studio",
@@ -24,7 +28,13 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="zh-CN">
       <body>
-        <SmoothScroll>{children}</SmoothScroll>
+        <SmoothScroll>
+          <RouteTransition />
+          <InteractionEffects />
+          <SiteHeader />
+          <main>{children}</main>
+          <SiteFooter />
+        </SmoothScroll>
       </body>
     </html>
   );

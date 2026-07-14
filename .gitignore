@@ -26,6 +26,10 @@ Thumbs.db
 # local source/reference files not needed for deployment
 *.pptx
 *.bak
+*.tsbuildinfo
+/LOGO02.jpg
+/yan-ventures.ico
+public/brand/logo-preview-dark.png
 
 # codex/local metadata
 .agents/
