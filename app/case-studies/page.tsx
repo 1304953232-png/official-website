@@ -1,6 +1,7 @@
 ﻿import type { Metadata } from "next";
 import { AnimatedSection } from "@/components/animated-section";
 import { PageHero } from "@/components/page-hero";
+import { ProgramCard } from "@/components/program-card";
 import { SectionHeading } from "@/components/section-heading";
 import { Card } from "@/components/ui-card";
 import { activityPrograms, caseHighlights, caseServices, caseTimeline } from "@/lib/site-data";
@@ -9,8 +10,6 @@ export const metadata: Metadata = {
   title: "Case Studies | YAN VENTURES",
   description: "查看 YAN VENTURES 孵化案例与代表性生态活动。"
 };
-
-const comingSoon = ["Lab-to-Market AI Project", "Alumni Founder Venture", "AI Infrastructure Startup"];
 
 export default function CaseStudiesPage() {
   return (
@@ -66,40 +65,11 @@ export default function CaseStudiesPage() {
           <SectionHeading
             eyebrow="Programs & Activities"
             title="Representative ecosystem programs"
-            text="这些活动适合作为官网“生态案例”展示：它们体现了燕南创新连接高校项目、城市产业政策、投资机构和创业人才的能力。"
+            text="从高校创业营、企业参访到城市级创新赛事，持续连接项目、人才、产业政策与早期资本。"
           />
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {activityPrograms.map((program) => {
-              const Icon = program.icon;
-              return (
-                <Card key={program.title} className="p-6">
-                  <Icon size={18} className="text-gold" />
-                  <div className="mt-8 text-xs uppercase tracking-[0.16em] text-muted">{program.tag}</div>
-                  <h2 className="mt-3 text-2xl font-medium">{program.title}</h2>
-                  <p className="mt-4 text-sm leading-6 text-muted">{program.text}</p>
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    {program.metrics.map((metric) => (
-                      <span key={metric} className="rounded-full border border-line px-3 py-1 text-xs text-muted">
-                        {metric}
-                      </span>
-                    ))}
-                  </div>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-      </AnimatedSection>
-
-      <AnimatedSection className="py-20">
-        <div className="container-shell">
-          <SectionHeading eyebrow="Coming Soon" title="More venture-building cases are being updated" />
-          <div className="grid gap-3 md:grid-cols-3">
-            {comingSoon.map((item) => (
-              <Card key={item} className="p-6">
-                <h2 className="text-2xl font-medium">{item}</h2>
-                <p className="mt-4 text-sm leading-6 text-muted">Coming Soon / 持续更新中</p>
-              </Card>
+            {activityPrograms.map((program) => (
+              <ProgramCard key={program.slug} program={program} />
             ))}
           </div>
         </div>

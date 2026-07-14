@@ -117,50 +117,130 @@ export const activityStats = [
   ["12", "AI 宁波北京宣讲投资机构代表"]
 ].map(([value, label]) => ({ value, label }));
 
+function activityImages(slug: string, count: number) {
+  return Array.from({ length: count }, (_, index) =>
+    `/cases/${slug}/${String(index + 1).padStart(2, "0")}.webp`
+  );
+}
+
 export const activityPrograms = [
   {
+    slug: "pku-ai-camp",
     title: "北京大学 AI 创业营",
     tag: "AI Venture Camp",
+    location: "北京大学 / 北京",
+    format: "University Venture Camp",
     text: "面向北大全校征集人工智能创业项目，吸引超过 100 个项目报名，覆盖机器人、脑机接口、AI4S、智慧医疗、类脑芯片等硬核科技方向，并出现天使轮估值达 5 亿元人民币的明星初创企业。",
+    detail: "创业营围绕项目征集、创业课程、导师交流和生态连接，为具备科研背景与技术壁垒的 AI 团队提供集中展示和加速成长的场域。项目方向横跨软件智能与硬科技，体现了高校源头创新的广度与深度。",
+    role: "连接高校创新团队、创业导师、产业资源与早期资本，让实验室成果和校园创业项目更快进入公司化与市场验证阶段。",
     metrics: ["100+ 报名项目", "AI4S / 机器人 / 智慧医疗", "5 亿估值项目"],
+    outcomes: [
+      "形成覆盖机器人、脑机接口、AI4S、智慧医疗和类脑芯片的项目池",
+      "建立技术团队与创业导师、产业资源和投资机构之间的交流入口",
+      "发现天使轮估值达到 5 亿元人民币的高潜力初创企业"
+    ],
+    cover: "/cases/pku-ai-camp/02.webp",
+    gallery: activityImages("pku-ai-camp", 2),
     icon: BrainCircuit
   },
   {
+    slug: "hangzhou-ai-journey",
     title: "杭州 AI 创新之旅",
     tag: "AI Innovation Journey",
+    location: "杭州 / 浙江",
+    format: "Founder Innovation Journey",
     text: "组织创业者走进宇树科技、阿里总部、云深处、图灵小镇、浙大强鹰及北大信息技术高等研究院，结合闭门晚宴、投资活动和工程创业教授分享，形成跨城市技术、产业与资本连接。",
+    detail: "活动以企业参访、技术交流、创业者闭门沟通和投资对接为主线，让参与者在短时间内接触杭州人工智能产业的一线公司、研究机构与创业基础设施。",
+    role: "通过高密度行程连接企业、科研机构、工程创业者和投资人，将参访学习进一步转化为合作线索、产业认知与长期关系。",
     metrics: ["六小龙参访", "阿里 / 浙大 / 北大信研院", "CEO 闭门晚宴"],
+    outcomes: [
+      "走进宇树科技、云深处、阿里总部等人工智能与科技企业",
+      "链接浙大强鹰、北大信息技术高等研究院等科研与转化平台",
+      "通过 CEO 闭门晚宴、教授分享和投资活动沉淀深度连接"
+    ],
+    cover: "/cases/hangzhou-ai-journey/01.webp",
+    gallery: activityImages("hangzhou-ai-journey", 6),
     icon: Globe2
   },
   {
+    slug: "zhongguancun-maker-competition",
     title: "中关村百校联盟创客大赛",
     tag: "University Startup Competition",
+    location: "北京 / 多高校赛区",
+    format: "University Startup Competition",
     text: "围绕人工智能、智能智造等新兴产业集群，在清北、矿大（北京）、国科大等赛区发现高水平创新创业团队，推动高校项目接受产业界、学术界和投资界联合评审。",
+    detail: "第七届中关村百校联盟人才创客大赛通过清北赛区、中国矿业大学（北京）赛区和中国科学院大学赛区等多场活动，持续触达不同高校的科研与创业团队。",
+    role: "以分赛区路演和联合评审机制筛选项目，让高校创业者获得来自产业、学术和投资视角的反馈，并为后续孵化与资源对接建立基础。",
     metrics: ["清北赛区", "矿大赛区", "国科大赛区"],
+    outcomes: [
+      "覆盖清北、中国矿业大学（北京）和中国科学院大学等高校赛区",
+      "围绕人工智能、智能制造等新兴产业方向开展项目展示",
+      "引入产业界、学术界和投资界代表参与项目评审与交流"
+    ],
+    cover: "/cases/zhongguancun-maker-competition/04.webp",
+    gallery: activityImages("zhongguancun-maker-competition", 12),
     icon: Trophy
   },
   {
+    slug: "haiju-global-competition",
     title: "第五届“海聚英才”全球创新创业大赛",
     tag: "Global Talent Competition",
+    location: "北京赛区",
+    format: "Global Talent Competition",
     text: "北京赛区吸引全球 10 余个国家的 360 余个人才项目参赛，人工智能项目超过三分之一，创始团队具海外背景项目占比超 50%，现场汇聚高校、园区、投资机构与人力资源服务机构等 150 余名代表。",
+    detail: "北京赛区以全球人才项目为核心，形成项目征集、决赛展示和多方生态对接的完整活动场景。人工智能项目与海外背景团队占比较高，体现出项目池的国际化和前沿科技属性。",
+    role: "连接全球人才团队与北京高校、产业园区、投资机构和专业服务资源，帮助优质项目获得城市落地、融资与产业合作的进一步机会。",
     metrics: ["360+ 人才项目", "10+ 国家", "150+ 生态代表"],
+    outcomes: [
+      "吸引来自全球 10 余个国家的 360 余个人才项目",
+      "人工智能项目占比超过三分之一，海外背景项目占比超过 50%",
+      "汇聚高校、园区、投资机构及专业服务机构等 150 余名代表"
+    ],
+    cover: "/cases/haiju-global-competition/01.webp",
+    gallery: activityImages("haiju-global-competition", 4),
     icon: Users
   },
   {
+    slug: "greater-bay-area-roadshow",
     title: "粤港澳大湾区创业大赛北京站",
     tag: "Greater Bay Area Roadshow",
+    location: "北京站",
+    format: "Regional Innovation Roadshow",
     text: "以“湾创未来 粤聚英才”为主题，在北京组织省外宣介活动，连接政府部门、高校、孵化基地、创业团队、投融资机构及行业协会代表，现场吸引 100 余人参与。",
+    detail: "北京站宣介活动围绕大湾区创新创业政策、参赛通道与人才机会展开，通过跨区域推介把北京高校和创业团队与粤港澳大湾区的产业、政策和孵化资源连接起来。",
+    role: "组织政府、高校、孵化载体、创业者、投融资机构和行业协会代表同场交流，降低跨区域政策与资源信息的获取门槛。",
     metrics: ["北京站", "100+ 参与者", "政府 / 高校 / 资本"],
+    outcomes: [
+      "以“湾创未来 粤聚英才”为主题开展北京站宣介",
+      "现场吸引政府、高校、孵化基地、创业团队和投资机构等 100 余人",
+      "为北京创新项目连接大湾区赛事、人才政策与产业落地资源"
+    ],
+    cover: "/cases/greater-bay-area-roadshow/02.webp",
+    gallery: activityImages("greater-bay-area-roadshow", 4),
     icon: Network
   },
   {
+    slug: "ai-ningbo-competition",
     title: "第二届“AI 宁波”人工智能赋能产业大赛",
     tag: "AI Industry Enablement",
+    location: "北京宣讲 / 宁波北仑",
+    format: "AI Industry Competition",
     text: "北京宣讲活动汇聚 40 位人工智能领域高层次人才、12 位投资机构代表，以及北京大学 AI 创业营、北京大学创新学社等百余位嘉宾，聚焦具身智能机器人、智能网联汽车、人工智能芯片等赛道。",
+    detail: "活动以宁波产业需求和人工智能人才项目为连接点，围绕具身智能机器人、智能网联汽车、人工智能芯片等六大产业赛道开展赛事宣讲、人才交流和资本连接。",
+    role: "把城市产业命题、人工智能高层次人才、高校创业社群和投资机构集中到同一场景，推动技术项目与区域产业需求形成匹配。",
     metrics: ["40 位 AI 人才", "12 家投资机构", "6 大产业赛道"],
+    outcomes: [
+      "汇聚 40 位人工智能领域高层次人才和 12 家投资机构代表",
+      "连接北京大学 AI 创业营、北京大学创新学社等百余位嘉宾",
+      "覆盖具身智能机器人、智能网联汽车和人工智能芯片等六大赛道"
+    ],
+    cover: "/cases/ai-ningbo-competition/01.webp",
+    gallery: activityImages("ai-ningbo-competition", 4),
     icon: CalendarDays
   }
 ];
+
+export type ActivityProgram = (typeof activityPrograms)[number];
 
 export const yanYuanEcosystem = [
   { title: "燕缘 Lab", text: "联合政府与市场化资本探索拨投联动，支持有组织的超前孵化与概念验证。" },

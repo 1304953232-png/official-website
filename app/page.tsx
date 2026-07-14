@@ -7,6 +7,7 @@ import { CountUp } from "@/components/count-up";
 import { HomeWowSection } from "@/components/home-wow-section";
 import { InfoCard } from "@/components/cards";
 import { Hero } from "@/components/hero";
+import { ProgramCard } from "@/components/program-card";
 import { Button } from "@/components/ui-button";
 import { Card } from "@/components/ui-card";
 import { activityPrograms, activityStats } from "@/lib/site-data";
@@ -114,17 +115,9 @@ export default function Home() {
             ))}
           </div>
           <div className="grid gap-4 lg:grid-cols-3">
-            {activityPrograms.map((program) => {
-              const Icon = program.icon;
-              return (
-                <Card key={program.title} className="p-6">
-                  <Icon size={18} className="text-gold" />
-                  <div className="mt-8 text-xs uppercase tracking-[0.16em] text-muted">{program.tag}</div>
-                  <h3 className="mt-3 text-2xl font-semibold">{program.title}</h3>
-                  <p className="mt-4 text-sm leading-6 text-muted">{program.text}</p>
-                </Card>
-              );
-            })}
+            {activityPrograms.map((program) => (
+              <ProgramCard key={program.slug} program={program} />
+            ))}
           </div>
         </div>
       </AnimatedSection>

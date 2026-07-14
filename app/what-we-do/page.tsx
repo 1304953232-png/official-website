@@ -1,5 +1,6 @@
 ﻿import Link from "next/link";
 import type { Metadata } from "next";
+import { ArrowUpRight } from "lucide-react";
 import { AnimatedSection } from "@/components/animated-section";
 import { CTASection } from "@/components/cta-section";
 import { PageHero } from "@/components/page-hero";
@@ -69,7 +70,7 @@ export default function WhatWeDoPage() {
           <SectionHeading
             eyebrow="Program Operations"
             title="Activities as a high-density sourcing engine"
-            text="PPT 中的 AI 创业营、杭州 AI 创新之旅、海聚英才、大湾区创业大赛和 AI 宁波等活动，适合沉淀为官网上的“项目发现与生态运营能力”。"
+            text="通过 AI 创业营、产业参访、全球人才赛事和城市创新大赛，持续发现项目并连接政策、产业与资本资源。"
           />
           <div className="grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
             <div className="grid gap-3 sm:grid-cols-2">
@@ -84,13 +85,22 @@ export default function WhatWeDoPage() {
               <p className="eyebrow mb-6">Recent Program Signals</p>
               <div className="grid gap-4">
                 {activityPrograms.map((program, index) => (
-                  <div key={program.title} className="grid grid-cols-[42px_1fr] gap-4 border-b border-line pb-4 last:border-b-0">
+                  <Link
+                    key={program.slug}
+                    href={`/case-studies/${program.slug}`}
+                    className="focus-ring group grid grid-cols-[42px_1fr_auto] gap-4 border-b border-line pb-4 last:border-b-0"
+                  >
                     <div className="text-sm text-muted">{String(index + 1).padStart(2, "0")}</div>
                     <div>
                       <h3 className="text-lg font-medium">{program.title}</h3>
                       <p className="mt-2 text-sm leading-6 text-muted">{program.metrics.join(" · ")}</p>
                     </div>
-                  </div>
+                    <ArrowUpRight
+                      size={17}
+                      className="mt-1 text-gold transition duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+                      aria-hidden
+                    />
+                  </Link>
                 ))}
               </div>
             </Card>

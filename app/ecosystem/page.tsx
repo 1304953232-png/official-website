@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { AnimatedSection } from "@/components/animated-section";
 import { CountUp } from "@/components/count-up";
 import { PageHero } from "@/components/page-hero";
+import { ProgramCard } from "@/components/program-card";
 import { SectionHeading } from "@/components/section-heading";
 import { Button } from "@/components/ui-button";
 import { Card } from "@/components/ui-card";
@@ -67,7 +68,7 @@ export default function EcosystemPage() {
           <SectionHeading
             eyebrow="YAN Ecosystem"
             title="An integrated platform for venture creation"
-            text="基于 PPT 中的燕缘生态素材，我们将其整理为从 Lab、孵化器、大赛、创投到人才社区、媒体智库和公益服务的一体化科创生态。"
+            text="燕缘生态覆盖 Lab、专业孵化器、国际科创大赛、创投、人才社区、媒体智库、会客厅与公益服务，形成协同运转的科创平台。"
           />
           <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
             {yanYuanEcosystem.map((item) => (
@@ -95,11 +96,7 @@ export default function EcosystemPage() {
           </div>
           <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
             {activityPrograms.map((program) => (
-              <Card key={program.title} className="border-black/10 bg-[#f6f1e7] p-6 shadow-none">
-                <div className="text-xs uppercase tracking-[0.16em] text-[#76633e]">{program.tag}</div>
-                <h3 className="mt-4 text-2xl font-semibold">{program.title}</h3>
-                <p className="mt-4 text-sm leading-6 text-ink/65">{program.text}</p>
-              </Card>
+              <ProgramCard key={program.slug} program={program} variant="light" />
             ))}
           </div>
         </div>
