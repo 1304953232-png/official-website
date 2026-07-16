@@ -44,56 +44,68 @@ export function HomeWowSection() {
         return;
       }
 
-      const delayedCall = gsap.delayedCall(1.05, () => {
+      const delayedCall = gsap.delayedCall(0.5, () => {
         const panels = gsap.utils.toArray<HTMLElement>("[data-wow-panel]", root);
         const cards = gsap.utils.toArray<HTMLElement>("[data-wow-card]", root);
         const beam = root.querySelector<HTMLElement>("[data-wow-beam]");
 
-        gsap.set(cards, { autoAlpha: 0.35, x: 80, rotateY: -12, transformPerspective: 1200 });
-        gsap.set(panels, { autoAlpha: 0, y: 36 });
-
-        if (!isDesktop) {
-          gsap.to(panels, {
-            autoAlpha: 1,
-            y: 0,
-            duration: 0.82,
-            ease: "power3.out",
-            stagger: 0.08,
-            scrollTrigger: { trigger: root, start: "top 78%", once: true }
-          });
-          gsap.to(cards, {
-            autoAlpha: 1,
-            x: 0,
-            rotateY: 0,
-            duration: 0.82,
-            ease: "power3.out",
-            stagger: 0.08,
-            scrollTrigger: { trigger: root, start: "top 74%", once: true }
-          });
-          return;
-        }
+        gsap.set(cards, {
+          autoAlpha: 0,
+          x: isDesktop ? 96 : 0,
+          y: isDesktop ? 72 : 34,
+          rotateX: isDesktop ? 10 : 0,
+          rotateY: isDesktop ? -14 : 0,
+          scale: isDesktop ? 0.92 : 0.97,
+          transformPerspective: 1200,
+          transformOrigin: "center right"
+        });
+        gsap.set(panels, { autoAlpha: 0, y: isDesktop ? 28 : 18 });
 
         const timeline = gsap.timeline({
           scrollTrigger: {
             trigger: root,
-            start: "top top",
-            end: "+=110%",
-            scrub: 0.55,
-            pin: true
+            start: isDesktop ? "top 72%" : "top 82%",
+            once: true
           }
         });
 
         timeline
-          .to(panels, { autoAlpha: 1, y: 0, duration: 0.55, stagger: 0.12, ease: "power3.out" }, 0)
-          .to(cards, { autoAlpha: 1, x: 0, rotateY: 0, duration: 0.8, stagger: 0.18, ease: "power3.out" }, 0.12)
-          .to(cards[0], { y: -26, scale: 0.97, autoAlpha: 0.45, duration: 0.55 }, 0.95)
-          .to(cards[1], { y: -18, scale: 1.04, duration: 0.55 }, 0.95)
-          .to(cards[2], { y: 12, scale: 0.99, duration: 0.55 }, 0.95)
-          .to(cards[1], { y: -32, scale: 0.97, autoAlpha: 0.52, duration: 0.55 }, 1.65)
-          .to(cards[2], { y: -22, scale: 1.05, duration: 0.55 }, 1.65);
+          .to(
+            cards,
+            {
+              autoAlpha: 1,
+              x: 0,
+              y: 0,
+              rotateX: 0,
+              rotateY: 0,
+              scale: 1,
+              duration: isDesktop ? 0.96 : 0.72,
+              stagger: isDesktop ? 0.16 : 0.09,
+              ease: "expo.out",
+              clearProps: "transform"
+            },
+            0
+          )
+          .to(
+            panels,
+            {
+              autoAlpha: 1,
+              y: 0,
+              duration: 0.68,
+              stagger: isDesktop ? 0.16 : 0.09,
+              ease: "power3.out",
+              clearProps: "transform"
+            },
+            0.14
+          );
 
         if (beam) {
-          timeline.fromTo(beam, { scaleX: 0.16, xPercent: -38 }, { scaleX: 1, xPercent: 36, duration: 1.8 }, 0);
+          timeline.fromTo(
+            beam,
+            { scaleX: 0.12, xPercent: -42, autoAlpha: 0.25 },
+            { scaleX: 1, xPercent: 32, autoAlpha: 1, duration: 1.15, ease: "power3.out" },
+            0
+          );
         }
       });
 
@@ -110,10 +122,10 @@ export function HomeWowSection() {
         <div>
           <p className="eyebrow mb-6">Venture OS</p>
           <h2 className="max-w-3xl text-[clamp(42px,7vw,96px)] font-semibold leading-[0.92]">
-            A pinned operating layer for AI company creation
+            An integrated operating layer for AI company creation
           </h2>
           <p className="mt-8 max-w-xl text-lg leading-8 text-muted">
-            Scroll through the system: research sourcing, studio build, and capital connection move as one integrated pipeline.
+            Research sourcing, studio build, and capital connection move as one integrated pipeline.
           </p>
         </div>
 
