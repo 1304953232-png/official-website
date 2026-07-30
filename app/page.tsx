@@ -20,7 +20,7 @@ const featuredStats = [
 ].map(([value, label]) => ({ value, label }));
 
 export const metadata: Metadata = {
-  title: "YAN VENTURES / 燕南创新 | AI Venture Studio",
+  title: "YAN VENTURES / 燕南创新 | AI 早期创业孵化平台",
   description: "燕南创新连接高校科研、产业资本与全球创业者，推动前沿科技从实验室走向产业化。"
 };
 
@@ -35,9 +35,9 @@ export default function Home() {
         <div className="container-shell">
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
             <div data-reveal-left>
-              <p className="eyebrow mb-6">From Lab to Company</p>
+              <p className="eyebrow mb-6">从实验室到公司</p>
               <h2 className="text-[clamp(42px,7vw,96px)] font-semibold leading-[0.92]">
-                Research becomes a company when execution arrives
+                科研成果的价值，要由一家公司把它兑现
               </h2>
             </div>
             <div data-reveal-right>
@@ -46,7 +46,7 @@ export default function Home() {
               </p>
               <Button asChild variant="secondary" className="mt-8">
                 <Link href="/about">
-                  About YAN VENTURES <ArrowUpRight size={16} />
+                  了解燕南创新 <ArrowUpRight size={16} />
                 </Link>
               </Button>
             </div>
@@ -69,13 +69,13 @@ export default function Home() {
         <div className="container-shell">
           <div className="mb-10 flex flex-col gap-6 text-ink md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="text-xs uppercase tracking-[0.18em] text-[#76633e]">Featured Company</p>
+              <p className="text-xs uppercase tracking-[0.18em] text-[#76633e]">代表企业案例</p>
               <h2 className="mt-5 max-w-4xl text-[clamp(38px,6vw,84px)] font-semibold leading-[0.95]">
-                Venture building in practice
+                与创业者一起，把技术变成公司
               </h2>
             </div>
             <Button asChild variant="secondary">
-              <Link href="/case-studies#companies">All Company Cases</Link>
+              <Link href="/case-studies#companies">查看企业案例</Link>
             </Button>
           </div>
           <FeaturedCompanyCase compact />
@@ -88,9 +88,9 @@ export default function Home() {
         <div className="container-shell">
           <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="eyebrow mb-5">Programs as Deal Flow</p>
+              <p className="eyebrow mb-5">项目发现与生态运营</p>
               <h2 className="max-w-5xl text-[clamp(38px,6vw,84px)] font-semibold leading-[0.95]">
-                Programs that surface frontier founders
+                在真实场景中，持续遇见前沿创业者
               </h2>
               <p className="mt-6 max-w-3xl text-lg leading-8 text-muted">
                 高校创业营、产业参访和城市创新赛事是持续发现项目、验证团队与建立长期连接的入口。
@@ -98,7 +98,7 @@ export default function Home() {
             </div>
             <Button asChild variant="secondary">
               <Link href="/case-studies#programs">
-                View All Programs <ArrowUpRight size={16} />
+                查看全部活动 <ArrowUpRight size={16} />
               </Link>
             </Button>
           </div>
@@ -111,7 +111,7 @@ export default function Home() {
       </AnimatedSection>
 
       <CTASection
-        title="Build the Next AI Company with YAN VENTURES"
+        title="把下一家前沿科技公司，一起做出来"
         text="我们关注具备原创技术、明确产业问题和长期创建意愿的早期团队。"
       />
     </>

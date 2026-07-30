@@ -23,36 +23,36 @@ import {
 } from "lucide-react";
 
 export const navItems = [
-  { label: "About", href: "/about" },
-  { label: "What We Do", href: "/what-we-do" },
-  { label: "Venture Studio", href: "/venture-studio" },
-  { label: "Ecosystem", href: "/ecosystem" },
-  { label: "Focus Areas", href: "/focus-areas" },
-  { label: "Case Study", href: "/case-studies" },
-  { label: "Fund", href: "/capital" },
-  { label: "Team", href: "/team" },
-  { label: "Contact", href: "/contact" }
+  { label: "关于燕南", href: "/about" },
+  { label: "业务体系", href: "/what-we-do" },
+  { label: "机构化联合创业", href: "/venture-studio" },
+  { label: "创新生态", href: "/ecosystem" },
+  { label: "重点方向", href: "/focus-areas" },
+  { label: "实践案例", href: "/case-studies" },
+  { label: "资本支持", href: "/capital" },
+  { label: "团队", href: "/team" },
+  { label: "联系我们", href: "/contact" }
 ];
 
 export const aboutCards = [
-  { value: "Founded in 2024", label: "2024 年正式成立，立足新时代科技创新发展浪潮，开启专业化科创服务新篇章。", icon: Sparkles },
-  { value: "Based in Zhongguancun", label: "总部设于北京中关村，深度扎根中国科技创新核心区域。", icon: Building2 },
-  { value: "AI & Frontier Technology", label: "聚焦 AI Agent、AI 基础设施、具身智能、大模型、物理智能等前沿科技方向。", icon: BrainCircuit },
-  { value: "Full-Cycle Venture Building", label: "围绕团队组建、校企资源、投融资、产业与地方政策、校友网络和生产落地形成全周期赋能。", icon: Workflow }
+  { value: "2024 年成立", label: "立足新一轮科技创新浪潮，开启专业化科创服务实践。", icon: Sparkles },
+  { value: "扎根中关村", label: "总部设于北京中关村，深度连接中国科技创新核心区域。", icon: Building2 },
+  { value: "聚焦 AI 与前沿科技", label: "关注 AI 智能体、AI 基础设施、具身智能、大模型与物理智能等方向。", icon: BrainCircuit },
+  { value: "全周期公司共创", label: "围绕团队、资本、产业、政策与公司治理，提供长期创建支持。", icon: Workflow }
 ];
 
 export const services = [
   {
-    zhTitle: "实验室科技成果转化",
-    title: "Lab-to-Market Technology Transfer",
+    zhTitle: "科技成果转化",
+    title: "让实验室技术走向市场",
     cn: "触达全国顶级实验室前沿技术，培育“水下”优质项目，协助完成合规流程、技术确权、知识产权、成果转化、公司设立和产业落地，最大程度获取高校资源助力。",
     keywords: ["技术确权", "专利申请", "产学研合作", "公司设立", "产业落地"],
     examples: ["北京大学工业具身实验室", "北京大学触觉感知实验室"],
     icon: FlaskConical
   },
   {
-    zhTitle: "优质创业公司赋能",
-    title: "Startup Empowerment",
+    zhTitle: "创业公司赋能",
+    title: "让早期公司更快建立增长秩序",
     cn: "面向具备技术壁垒和成长潜力的早期科技企业，提供多元活动与流量渠道、全域资本对接、战略梳理、融资规划、产业对接、路演辅导、政策申报和治理支持。",
     keywords: ["战略咨询", "融资陪跑", "产业对接", "路演辅导", "政策申报"],
     examples: ["AI 基础设施企业融资顾问", "类脑计算芯片企业融资顾问"],
@@ -60,7 +60,7 @@ export const services = [
   },
   {
     zhTitle: "校友企业孵化",
-    title: "Alumni Venture Incubation",
+    title: "让校友网络成为长期创业资源",
     cn: "依托高校校友网络、创业社区和产业资本生态，深度链接技术创始人、产业专家、投资机构和创业导师，为校友创业企业提供专属资源倾斜和长期成长支持。",
     keywords: ["校友网络", "创业导师", "资本资源", "产业订单", "长期陪跑"],
     examples: ["前沿技术航空航天量子芯片项目", "北大具身智能创业者世界模型项目"],
@@ -69,18 +69,18 @@ export const services = [
 ];
 
 export const ventureComparisons = [
-  { model: "Venture Studio", stage: "0-1 创意期", value: "资金 + 运营团队 + 生态支持 + 全周期资源整合", depth: "长期深度操盘，陪伴 2-4 年", goal: "共同创建和孵化可规模化的科技公司" },
-  { model: "Traditional Incubator", stage: "1-N 成长期", value: "工位、基础服务、活动资源", depth: "通常为 3-6 个月轻度扶持", goal: "提供创业基础设施" },
-  { model: "Traditional VC", stage: "产品验证期后", value: "资金和部分投后管理", depth: "以财务投资和投后跟踪为主", goal: "资本增值和退出" }
+  { model: "燕南创新共创模式", stage: "0-1 创意期", value: "资金 + 运营团队 + 生态支持 + 全周期资源整合", depth: "长期深度参与，陪伴 2-4 年", goal: "共同创建和孵化可规模化的科技公司" },
+  { model: "传统孵化器", stage: "1-N 成长期", value: "工位、基础服务、活动资源", depth: "通常为 3-6 个月轻度扶持", goal: "提供创业基础设施" },
+  { model: "传统风险投资", stage: "产品验证期后", value: "资金和部分投后管理", depth: "以财务投资和投后跟踪为主", goal: "资本增值和退出" }
 ];
 
 export const ventureSteps = [
-  { title: "Strategic Direction", text: "挖掘市场痛点，参与产业趋势判断，形成高可行性的商业概念和战略方向。" },
-  { title: "Seed Capital", text: "投入种子资金，为公司早期发展形成基石，并支持项目验证市场反馈。" },
-  { title: "Team Building", text: "匹配精准画像 CEO 或外部合伙人，链接技术合伙人、产业顾问和外部资源，完成核心创始团队搭建。" },
-  { title: "Company Formation", text: "协助完成股权架构、工商注册、园区选址、政策申报和企业落地，并协调后台服务降低试错成本。" },
-  { title: "Industrial Validation", text: "导入真实产业场景、客户资源、上下游协同和商业订单，推动业务闭环跑通。" },
-  { title: "Follow-on Financing & Exit", text: "提供融资规划、路演辅导、后续轮次投资机构对接，并支持独立 IPO、并购或产业整合等长期资本路径。" }
+  { title: "明确创业方向", text: "从产业痛点和技术趋势出发，形成经得起验证的商业概念与战略方向。" },
+  { title: "提供种子资本", text: "以早期资金支持关键验证，为公司启动和市场反馈建立基础。" },
+  { title: "组建核心团队", text: "匹配 CEO 或外部合伙人，连接技术伙伴与产业顾问，搭建核心创始团队。" },
+  { title: "完成公司设立", text: "协助股权架构、工商注册、园区选址、政策申报与企业落地，降低早期试错成本。" },
+  { title: "进入产业验证", text: "导入真实场景、客户资源、上下游协同与商业订单，推动业务闭环形成。" },
+  { title: "规划后续资本路径", text: "提供融资规划、路演辅导和后续投资机构对接，支持并购、产业整合或独立上市等长期路径。" }
 ];
 
 export const ecosystemStats = [
@@ -127,9 +127,9 @@ export const activityPrograms = [
   {
     slug: "pku-ai-camp",
     title: "北京大学 AI 创业营",
-    tag: "AI Venture Camp",
+    tag: "高校 AI 创业营",
     location: "北京大学 / 北京",
-    format: "University Venture Camp",
+    format: "高校创业营",
     text: "面向北大全校征集人工智能创业项目，吸引超过 100 个项目报名，覆盖机器人、脑机接口、AI4S、智慧医疗、类脑芯片等硬核科技方向，并出现天使轮估值达 5 亿元人民币的明星初创企业。",
     detail: "创业营围绕项目征集、创业课程、导师交流和生态连接，为具备科研背景与技术壁垒的 AI 团队提供集中展示和加速成长的场域。项目方向横跨软件智能与硬科技，体现了高校源头创新的广度与深度。",
     role: "连接高校创新团队、创业导师、产业资源与早期资本，让实验室成果和校园创业项目更快进入公司化与市场验证阶段。",
@@ -146,9 +146,9 @@ export const activityPrograms = [
   {
     slug: "hangzhou-ai-journey",
     title: "杭州 AI 创新之旅",
-    tag: "AI Innovation Journey",
+    tag: "产业创新参访",
     location: "杭州 / 浙江",
-    format: "Founder Innovation Journey",
+    format: "创业者产业参访",
     text: "组织创业者走进宇树科技、阿里总部、云深处、图灵小镇、浙大强鹰及北大信息技术高等研究院，结合闭门晚宴、投资活动和工程创业教授分享，形成跨城市技术、产业与资本连接。",
     detail: "活动以企业参访、技术交流、创业者闭门沟通和投资对接为主线，让参与者在短时间内接触杭州人工智能产业的一线公司、研究机构与创业基础设施。",
     role: "通过高密度行程连接企业、科研机构、工程创业者和投资人，将参访学习进一步转化为合作线索、产业认知与长期关系。",
@@ -165,9 +165,9 @@ export const activityPrograms = [
   {
     slug: "zhongguancun-maker-competition",
     title: "中关村百校联盟创客大赛",
-    tag: "University Startup Competition",
+    tag: "高校创业大赛",
     location: "北京 / 多高校赛区",
-    format: "University Startup Competition",
+    format: "高校创业大赛",
     text: "围绕人工智能、智能智造等新兴产业集群，在清北、矿大（北京）、国科大等赛区发现高水平创新创业团队，推动高校项目接受产业界、学术界和投资界联合评审。",
     detail: "第七届中关村百校联盟人才创客大赛通过清北赛区、中国矿业大学（北京）赛区和中国科学院大学赛区等多场活动，持续触达不同高校的科研与创业团队。",
     role: "以分赛区路演和联合评审机制筛选项目，让高校创业者获得来自产业、学术和投资视角的反馈，并为后续孵化与资源对接建立基础。",
@@ -184,9 +184,9 @@ export const activityPrograms = [
   {
     slug: "haiju-global-competition",
     title: "第五届“海聚英才”全球创新创业大赛",
-    tag: "Global Talent Competition",
+    tag: "全球人才赛事",
     location: "北京赛区",
-    format: "Global Talent Competition",
+    format: "全球人才创新赛事",
     text: "北京赛区吸引全球 10 余个国家的 360 余个人才项目参赛，人工智能项目超过三分之一，创始团队具海外背景项目占比超 50%，现场汇聚高校、园区、投资机构与人力资源服务机构等 150 余名代表。",
     detail: "北京赛区以全球人才项目为核心，形成项目征集、决赛展示和多方生态对接的完整活动场景。人工智能项目与海外背景团队占比较高，体现出项目池的国际化和前沿科技属性。",
     role: "连接全球人才团队与北京高校、产业园区、投资机构和专业服务资源，帮助优质项目获得城市落地、融资与产业合作的进一步机会。",
@@ -203,9 +203,9 @@ export const activityPrograms = [
   {
     slug: "greater-bay-area-roadshow",
     title: "粤港澳大湾区创业大赛北京站",
-    tag: "Greater Bay Area Roadshow",
+    tag: "区域创新路演",
     location: "北京站",
-    format: "Regional Innovation Roadshow",
+    format: "区域创新路演",
     text: "以“湾创未来 粤聚英才”为主题，在北京组织省外宣介活动，连接政府部门、高校、孵化基地、创业团队、投融资机构及行业协会代表，现场吸引 100 余人参与。",
     detail: "北京站宣介活动围绕大湾区创新创业政策、参赛通道与人才机会展开，通过跨区域推介把北京高校和创业团队与粤港澳大湾区的产业、政策和孵化资源连接起来。",
     role: "组织政府、高校、孵化载体、创业者、投融资机构和行业协会代表同场交流，降低跨区域政策与资源信息的获取门槛。",
@@ -222,9 +222,9 @@ export const activityPrograms = [
   {
     slug: "ai-ningbo-competition",
     title: "第二届“AI 宁波”人工智能赋能产业大赛",
-    tag: "AI Industry Enablement",
+    tag: "AI 产业赛事",
     location: "北京宣讲 / 宁波北仑",
-    format: "AI Industry Competition",
+    format: "AI 产业创新赛事",
     text: "北京宣讲活动汇聚 40 位人工智能领域高层次人才、12 位投资机构代表，以及北京大学 AI 创业营、北京大学创新学社等百余位嘉宾，聚焦具身智能机器人、智能网联汽车、人工智能芯片等赛道。",
     detail: "活动以宁波产业需求和人工智能人才项目为连接点，围绕具身智能机器人、智能网联汽车、人工智能芯片等六大产业赛道开展赛事宣讲、人才交流和资本连接。",
     role: "把城市产业命题、人工智能高层次人才、高校创业社群和投资机构集中到同一场景，推动技术项目与区域产业需求形成匹配。",
@@ -243,11 +243,11 @@ export const activityPrograms = [
 export type ActivityProgram = (typeof activityPrograms)[number];
 
 export const yanYuanEcosystem = [
-  { title: "燕缘 Lab", text: "联合政府与市场化资本探索拨投联动，支持有组织的超前孵化与概念验证。" },
+  { title: "燕缘实验室", text: "联合政府与市场化资本探索拨投联动，支持有组织的超前孵化与概念验证。" },
   { title: "燕缘孵化器", text: "聚焦成果转化和科学家服务的专业孵化载体，深化企业培育服务。" },
   { title: "燕缘国际科创大赛", text: "生态化整合北大资源，建设国际一流科创交流服务平台和优质项目池。" },
   { title: "燕缘创投", text: "延续元培基金实践基础，投早、投小、投原始创新，做耐心资本。" },
-  { title: "燕缘 HUB", text: "建设北大系科创人才社区，连接培训、猎头、创业服务和长期社群力量。" },
+  { title: "燕缘科创人才社区", text: "建设北大系科创人才社区，连接培训、猎头、创业服务和长期社群力量。" },
   { title: "燕缘科创评论", text: "聚焦全球科技成果转化的专业智库与媒体，讲好科创故事，传播科创力量。" },
   { title: "燕缘会客厅", text: "打造城市级北大人会客空间，服务北大人及北大之友交流与合作。" },
   { title: "燕缘公益", text: "拓展公益项目，反哺北大、服务行业进步，做更多难而正确且专业的事。" }
@@ -273,16 +273,16 @@ export const partnerInstitutions = [
 ];
 
 const focusAreaRows: Array<[string, string, LucideIcon]> = [
-  ["Smart Hardware / AI Agent", "面向智能硬件、企业服务、知识工作流和自动化场景的新一代 AI Agent 与交互系统。", BrainCircuit],
-  ["AI Infrastructure", "支撑模型训练、推理部署、数据处理和算力调度的 AI 基础设施。", CircuitBoard],
-  ["Embodied Intelligence", "连接感知、决策与行动的具身智能系统，推动机器人进入真实产业场景。", Factory],
-  ["Large Models / Physical AI", "围绕大模型能力、垂直应用、物理智能和行业落地的创新公司。", Blocks],
-  ["Biomedicine", "面向生命科学、医疗健康和药物研发的前沿技术项目。", ShieldCheck],
-  ["Aerospace", "围绕航空航天、卫星、先进材料和高端制造的硬科技方向。", Orbit],
-  ["Quantum Chips", "关注量子计算、芯片设计和下一代计算架构相关机会。", Cpu],
-  ["Advanced Manufacturing", "以智能制造、柔性制造、离散制造流程优化和工业自动化为核心的产业升级方向。", Factory],
-  ["AI Talent & Founder Networks", "围绕高校 AI 人才、校友创始人与产业专家形成早期项目发现网络。", Network],
-  ["Technology Transfer", "支持高校科研成果从实验室进入产品、公司和产业场景。", FlaskConical]
+  ["智能硬件与 AI 智能体", "面向智能硬件、企业服务、知识工作流和自动化场景的新一代 AI 智能体与交互系统。", BrainCircuit],
+  ["AI 基础设施", "支撑模型训练、推理部署、数据处理和算力调度的底层基础设施。", CircuitBoard],
+  ["具身智能", "连接感知、决策与行动的智能系统，推动机器人进入真实产业场景。", Factory],
+  ["大模型与物理智能", "关注大模型能力、垂直应用、物理智能与行业落地形成的创业机会。", Blocks],
+  ["生物医药", "面向生命科学、医疗健康和药物研发的前沿技术项目。", ShieldCheck],
+  ["航空航天", "围绕航空航天、卫星、先进材料和高端制造的硬科技方向。", Orbit],
+  ["量子计算与芯片", "关注量子计算、芯片设计和下一代计算架构相关机会。", Cpu],
+  ["先进制造", "以智能制造、柔性制造、离散制造流程优化和工业自动化为核心的产业升级方向。", Factory],
+  ["AI 人才与创始人网络", "围绕高校 AI 人才、校友创始人与产业专家形成早期项目发现网络。", Network],
+  ["科技成果转化", "支持高校科研成果从实验室进入产品、公司和产业场景。", FlaskConical]
 ];
 
 export const focusAreas = focusAreaRows.map(([title, description, icon]) => ({ title, description, icon }));
@@ -312,9 +312,9 @@ export const caseHighlights = [
 
 export const fundItems = [
   { title: "燕南一期基金", text: "元禾重元人工智能创业投资基金，双管理人早期创投基金设立中。", status: "目标规模 1 亿元 / 设立中", icon: BrainCircuit },
-  { title: "Co-GP Model", text: "计划与燕缘创投成立 Co-GP 早期创投基金，形成资源与资本的深度联动。", status: "筹备中 / To Be Announced", icon: Handshake },
-  { title: "Technology Transfer", text: "支持高校科研成果从实验室进入产业场景，联动技术转移中心与高校创新平台。", status: "Active Thesis", icon: Landmark },
-  { title: "Venture Building", text: "不止投资，更参与公司从 0 到 1 的创建、团队搭建、产业验证和融资成长。", status: "Active Thesis", icon: ArrowUpRight }
+  { title: "联合管理基金模式", text: "计划以联合普通合伙人（Co-GP）方式与燕缘创投筹备早期创投基金，形成资源与资本的深度联动。", status: "筹备中", icon: Handshake },
+  { title: "成果转化支持", text: "支持高校科研成果从实验室进入产业场景，联动技术转移中心与高校创新平台。", status: "持续关注", icon: Landmark },
+  { title: "公司共创投资", text: "不止投资，更参与公司从 0 到 1 的创建、团队搭建、产业验证和融资成长。", status: "持续关注", icon: ArrowUpRight }
 ];
 
 export const fundFacts = [
@@ -334,30 +334,32 @@ export const teamPeople = [
 ];
 
 const teamRoleRows: Array<[string, string, string]> = [
-  ["UIL", "University Innovation Leaders", "深度理解高校科研体系、创新创业教育和成果转化机制。"],
-  ["VB", "Venture Builders", "参与公司从概念、团队、产品到融资的全过程建设。"],
-  ["IP", "Investment Professionals", "具备早期投资、融资顾问、资本规划和投后支持经验。"],
-  ["IA", "Industry Advisors", "连接真实产业场景、客户资源、供应链和商业订单。"],
-  ["RC", "Research Commercialization Experts", "支持专利、技术确权、产学研合作和成果产业化路径设计。"]
+  ["UIL", "高校创新与转化", "深度理解高校科研体系、创新创业教育和成果转化机制。"],
+  ["VB", "公司创建与运营", "参与公司从概念、团队、产品到融资的全过程建设。"],
+  ["IP", "投资与资本规划", "具备早期投资、融资顾问、资本规划和投后支持经验。"],
+  ["IA", "产业顾问与场景", "连接真实产业场景、客户资源、供应链和商业订单。"],
+  ["RC", "科研成果产业化", "支持专利、技术确权、产学研合作和成果产业化路径设计。"]
 ];
 
 export const teamRoles = teamRoleRows.map(([initials, title, text]) => ({ initials, title, text }));
 
 export const serviceMatrix = ["联创推荐", "工商注册", "园区选址", "政策申报", "战略咨询", "股权架构搭建", "核心团队组建", "专利申请", "技术确权", "产学研合作落地", "产业对接", "真实应用场景导入", "商业订单导入", "融资陪跑", "路演辅导", "对接顶级投资机构与产业资本", "财务、法务、合规咨询", "政府补贴申请"];
 
-export const contactStages = ["Idea / Research Stage", "Company Formed", "Seed Stage", "Pre-Series A", "Industry Partner", "Investment Partner"];
+export const contactStages = ["创意或科研阶段", "公司已设立", "种子轮阶段", "A 轮前", "产业合作方", "投资合作方"];
 
 export const socialProof = [
-  { label: "University-Originated", icon: Landmark },
-  { label: "AI-Focused", icon: BrainCircuit },
-  { label: "Venture Studio Model", icon: Workflow }
+  { label: "源自高校创新", icon: Landmark },
+  { label: "聚焦 AI 与前沿科技", icon: BrainCircuit },
+  { label: "机构化共创模式", icon: Workflow }
 ];
 
-export const footerLinks = navItems.filter((item) => ["About", "What We Do", "Venture Studio", "Ecosystem", "Focus Areas", "Case Study", "Contact"].includes(item.label));
+export const footerLinks = navItems.filter((item) =>
+  ["关于燕南", "业务体系", "机构化联合创业", "创新生态", "重点方向", "实践案例", "联系我们"].includes(item.label)
+);
 
 export const ecosystemPillars = [
-  { label: "Research", icon: FlaskConical },
-  { label: "Capital", icon: Globe2 },
-  { label: "Industry", icon: Factory },
-  { label: "Policy", icon: Landmark }
+  { label: "科研", icon: FlaskConical },
+  { label: "资本", icon: Globe2 },
+  { label: "产业", icon: Factory },
+  { label: "政策", icon: Landmark }
 ];

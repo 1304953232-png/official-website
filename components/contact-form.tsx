@@ -10,12 +10,12 @@ import { contactStages } from "@/lib/site-data";
 type SubmissionStatus = "idle" | "submitting" | "success" | "error";
 
 const supportOptions = [
-  "Venture Building",
-  "Technology Transfer",
-  "Fundraising",
-  "Industrial Connection",
-  "Ecosystem Partnership",
-  "Other"
+  "公司共创",
+  "科技成果转化",
+  "融资支持",
+  "产业资源对接",
+  "生态合作",
+  "其他需求"
 ];
 
 export function ContactForm() {
@@ -77,8 +77,8 @@ export function ContactForm() {
       className="relative rounded-[8px] border border-line bg-background-soft/62 p-5 md:p-8"
     >
       <div className="mb-7 border-b border-line pb-6">
-        <p className="eyebrow">Project Intake</p>
-        <h2 className="mt-3 text-2xl font-semibold md:text-3xl">Tell us what you are building.</h2>
+        <p className="eyebrow">项目提交</p>
+        <h2 className="mt-3 text-2xl font-semibold md:text-3xl">请介绍你正在做的事</h2>
         <p className="mt-3 text-sm leading-6 text-muted">必填项用于完成初步判断，项目链接可填写官网、产品演示或在线 BP。</p>
       </div>
 
@@ -89,19 +89,19 @@ export function ContactForm() {
 
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="grid gap-2 text-sm text-muted">
-          Name
+          姓名
           <Input name="name" required minLength={2} maxLength={80} autoComplete="name" />
         </label>
         <label className="grid gap-2 text-sm text-muted">
-          Organization
+          团队或机构
           <Input name="organization" maxLength={120} autoComplete="organization" />
         </label>
         <label className="grid gap-2 text-sm text-muted">
-          Email
+          联系邮箱
           <Input name="email" type="email" required maxLength={160} autoComplete="email" />
         </label>
         <label className="grid gap-2 text-sm text-muted">
-          Project Stage
+          项目阶段
           <select
             name="stage"
             className="focus-ring h-12 w-full rounded-[7px] border border-line bg-[#080b12] px-4 text-sm text-foreground"
@@ -109,7 +109,7 @@ export function ContactForm() {
             required
           >
             <option value="" disabled>
-              Select a stage
+              请选择当前阶段
             </option>
             {contactStages.map((stage) => (
               <option key={stage} value={stage}>
@@ -119,7 +119,7 @@ export function ContactForm() {
           </select>
         </label>
         <label className="grid gap-2 text-sm text-muted">
-          Support Needed
+          希望获得的支持
           <select
             name="support"
             className="focus-ring h-12 w-full rounded-[7px] border border-line bg-[#080b12] px-4 text-sm text-foreground"
@@ -127,7 +127,7 @@ export function ContactForm() {
             required
           >
             <option value="" disabled>
-              Select support
+              请选择合作诉求
             </option>
             {supportOptions.map((option) => (
               <option key={option} value={option}>
@@ -137,7 +137,7 @@ export function ContactForm() {
           </select>
         </label>
         <label className="grid gap-2 text-sm text-muted">
-          Project Link <span className="sr-only">(optional)</span>
+          项目链接 <span className="sr-only">（选填）</span>
           <Input
             name="projectUrl"
             type="url"
@@ -149,7 +149,7 @@ export function ContactForm() {
         </label>
       </div>
       <label className="mt-4 grid gap-2 text-sm text-muted">
-        Project Introduction
+        项目介绍
         <Textarea
           name="message"
           required
@@ -177,11 +177,11 @@ export function ContactForm() {
         <Button type="submit" disabled={status === "submitting"} aria-busy={status === "submitting"}>
           {status === "submitting" ? (
             <>
-              Submitting <LoaderCircle size={16} className="animate-spin" />
+              正在提交 <LoaderCircle size={16} className="animate-spin" />
             </>
           ) : (
             <>
-              Submit Project <Send size={16} />
+              提交项目 <Send size={16} />
             </>
           )}
         </Button>

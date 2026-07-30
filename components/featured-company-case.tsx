@@ -5,9 +5,9 @@ import { caseHighlights } from "@/lib/site-data";
 import { cn } from "@/lib/utils";
 
 const systemNodes = [
-  { label: "Perceive", icon: Network },
-  { label: "Plan", icon: Workflow },
-  { label: "Deliver", icon: Factory }
+  { label: "感知", icon: Network },
+  { label: "规划", icon: Workflow },
+  { label: "交付", icon: Factory }
 ];
 
 export function FeaturedCompanyCase({ compact = false }: { compact?: boolean }) {
@@ -26,14 +26,14 @@ export function FeaturedCompanyCase({ compact = false }: { compact?: boolean }) 
         />
         <div className="relative flex h-full flex-col justify-between">
           <div className="flex items-center justify-between gap-4 text-xs uppercase tracking-[0.16em] text-muted">
-            <span>Venture-built Company</span>
-            <span>Industrial AI / 2026</span>
+            <span>共创企业</span>
+            <span>工业智能 / 2026</span>
           </div>
 
           <div className="py-12">
             <div className="text-[clamp(70px,11vw,150px)] font-semibold leading-[0.78] text-foreground">一湃</div>
             <div className="mt-6 max-w-xl text-[clamp(26px,4vw,48px)] font-semibold leading-[0.95]">
-              Industrial Embodied Intelligence
+              工业具身智能
             </div>
           </div>
 
@@ -56,7 +56,7 @@ export function FeaturedCompanyCase({ compact = false }: { compact?: boolean }) 
 
       <div className="flex flex-col justify-between p-6 text-ink md:p-9">
         <div>
-          <p className="text-xs uppercase tracking-[0.18em] text-[#76633e]">Companies We Build</p>
+          <p className="text-xs uppercase tracking-[0.18em] text-[#76633e]">企业共创案例</p>
           <h2 className="mt-5 text-[clamp(38px,5vw,72px)] font-semibold leading-[0.92]">一湃科技</h2>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-ink/70">
             国际化产业老兵与顶尖科研团队共同创建，聚焦离散制造流程和柔性精密制造优化，以具身智能提高复杂制造的交付确定性。
@@ -76,7 +76,7 @@ export function FeaturedCompanyCase({ compact = false }: { compact?: boolean }) 
 
         <Button asChild className="mt-9 w-fit bg-ink text-foreground hover:bg-ink/90">
           <Link href="/case-studies/yipai-tech">
-            View Company Case <ArrowUpRight size={16} />
+            查看企业详情 <ArrowUpRight size={16} />
           </Link>
         </Button>
       </div>

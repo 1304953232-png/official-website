@@ -144,14 +144,14 @@ export function Hero() {
             />
             <div>
               <div className="text-sm font-semibold tracking-[0.18em]">YAN VENTURES</div>
-              <div className="mt-1 text-xs text-muted">燕南创新 / AI Venture Studio</div>
+              <div className="mt-1 text-xs text-muted">燕南创新 / AI 早期创业孵化平台</div>
             </div>
           </div>
           <p data-hero-reveal className="eyebrow mb-8">
-            AI Venture Studio / University Innovation Ecosystem
+            源自高校创新 · 面向前沿产业
           </p>
           <h1 className="text-balance text-[clamp(58px,11vw,168px)] font-semibold leading-[0.86] tracking-normal">
-            {["Venture Studio", "for Early-Stage", "AI Innovation"].map((line) => (
+            {["让前沿技术", "成为真正的", "产业力量"].map((line) => (
               <span key={line} className="block overflow-hidden pb-3">
                 <span data-title-line className="block origin-bottom will-change-transform">
                   {line}
@@ -161,20 +161,20 @@ export function Hero() {
           </h1>
           <div data-hero-reveal className="mt-7 grid max-w-4xl gap-5 md:grid-cols-[1fr_1.15fr]">
             <p className="text-xl leading-relaxed text-foreground md:text-2xl">
-              燕南创新连接高校科研、产业资本与全球创业者，推动前沿科技从实验室走向产业化。
+              燕南创新连接高校科研、产业资本与创业者，陪伴前沿技术走出实验室、走进真实产业。
             </p>
             <p className="text-base leading-7 text-muted md:text-lg">
-              We build, incubate and accelerate early-stage AI companies through a full-stack innovation ecosystem.
+              我们以机构化共创方式参与公司设立、团队搭建、产品验证与融资成长。
             </p>
           </div>
           <div data-hero-reveal className="mt-10 flex flex-col gap-3 sm:flex-row">
             <Button asChild size="lg" className="magnetic-cta glow-cta">
               <Link href="/ecosystem">
-                Explore Our Ecosystem <ArrowUpRight size={17} />
+                了解创新生态 <ArrowUpRight size={17} />
               </Link>
             </Button>
             <Button asChild size="lg" variant="secondary" className="magnetic-cta glow-cta">
-              <Link href="/contact">Submit Your Project</Link>
+              <Link href="/contact">提交你的项目</Link>
             </Button>
           </div>
         </div>
@@ -194,7 +194,7 @@ export function Hero() {
 
       <a
         href="/about"
-        aria-label="Go to about page"
+        aria-label="了解燕南创新"
         className="focus-ring absolute bottom-6 right-6 z-20 hidden h-12 w-12 items-center justify-center rounded-full border border-line text-muted transition hover:border-gold hover:text-foreground md:flex"
       >
         <ArrowDown size={18} />

@@ -11,19 +11,19 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const stages = [
   {
-    label: "01 / Source",
-    title: "University research signals",
-    text: "We map labs, founders and technical inflection points before they become obvious market narratives."
+    label: "01 / 技术源头",
+    title: "从科研线索中识别创业机会",
+    text: "持续连接实验室、科研团队与技术创始人，在产业叙事形成之前识别真正值得投入的变化。"
   },
   {
-    label: "02 / Build",
-    title: "Studio operating system",
-    text: "Strategy, product, company formation and early validation move together through a structured venture studio flow."
+    label: "02 / 公司共创",
+    title: "把技术判断变成公司行动",
+    text: "让战略、产品、公司设立、团队组建和早期验证在一套清晰的共创机制中同步推进。"
   },
   {
-    label: "03 / Capital",
-    title: "Fundraising and landing network",
-    text: "Projects are connected with angels, strategic investors, industrial partners and local policy resources."
+    label: "03 / 资本与落地",
+    title: "连接长期资本与真实产业",
+    text: "为项目连接天使投资人、战略资本、产业伙伴与地方政策资源，支持公司进入下一阶段。"
   }
 ];
 
@@ -120,12 +120,12 @@ export function HomeWowSection() {
       <div data-wow-beam className="wow-beam" aria-hidden />
       <div className="container-shell relative z-10 grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
         <div>
-          <p className="eyebrow mb-6">Venture OS</p>
+          <p className="eyebrow mb-6">公司共创体系</p>
           <h2 className="max-w-3xl text-[clamp(42px,7vw,96px)] font-semibold leading-[0.92]">
-            An integrated operating layer for AI company creation
+            一套贯穿 AI 公司创建全程的执行系统
           </h2>
           <p className="mt-8 max-w-xl text-lg leading-8 text-muted">
-            Research sourcing, studio build, and capital connection move as one integrated pipeline.
+            项目发现、公司共创与资本连接不是彼此割裂的服务，而是一条持续推进的创业路径。
           </p>
         </div>
 

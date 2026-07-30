@@ -5,7 +5,7 @@ import { SectionHeading } from "@/components/section-heading";
 import { teamPeople, teamRoles } from "@/lib/site-data";
 
 export const metadata: Metadata = {
-  title: "Team | YAN VENTURES",
+  title: "团队 | YAN VENTURES",
   description: "认识 YAN VENTURES 的创业顾问和执行团队，覆盖高校创新、成果转化、早期投资与公司创建。"
 };
 
@@ -16,17 +16,17 @@ export default function TeamPage() {
   return (
     <>
       <PageHero
-        eyebrow="Team"
-        title="Team"
+        eyebrow="团队"
+        title="一支跨越科研、创业与资本的团队"
         subtitle="高校创新、成果转化、早期投资与公司创建经验，共同构成燕南创新的执行底座。"
       />
 
       <AnimatedSection className="bg-ivory py-[clamp(76px,10vw,130px)] text-ink">
         <div className="container-shell">
           <div className="mb-12 max-w-4xl">
-            <p className="text-xs uppercase tracking-[0.18em] text-[#76633e]">Advisors</p>
+            <p className="text-xs uppercase tracking-[0.18em] text-[#76633e]">创业顾问</p>
             <h2 className="mt-5 text-[clamp(40px,6vw,82px)] font-semibold leading-[0.94]">
-              Innovation and technology transfer leadership
+              以高校创新与成果转化经验，为创业提供判断
             </h2>
           </div>
           <div className="grid gap-px overflow-hidden rounded-[8px] border border-black/10 bg-black/10 md:grid-cols-2">
@@ -64,8 +64,8 @@ export default function TeamPage() {
       <AnimatedSection className="bg-background-soft py-[clamp(80px,10vw,140px)]">
         <div className="container-shell">
           <SectionHeading
-            eyebrow="Venture Builders"
-            title="Operators across company creation and capital"
+            eyebrow="执行团队"
+            title="把公司创建与资本执行放在同一张桌上"
             text="团队覆盖创业孵化、投资银行、早期投资、产品运营与跨境资本规划，围绕项目从公司设立到后续融资持续协作。"
           />
           <div className="grid gap-3 md:grid-cols-2">
@@ -94,7 +94,7 @@ export default function TeamPage() {
 
       <AnimatedSection className="section-pad">
         <div className="container-shell">
-          <SectionHeading eyebrow="Operating Capabilities" title="One team, five capability layers" />
+          <SectionHeading eyebrow="协作能力" title="五类能力，共同服务一家公司的成长" />
           <div className="divide-y divide-line border-y border-line">
             {teamRoles.map((role, index) => (
               <div

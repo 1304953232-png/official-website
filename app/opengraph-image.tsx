@@ -36,17 +36,17 @@ export default function OpenGraphImage() {
           }}
         >
           <span>YAN VENTURES</span>
-          <span>Beijing · Zhongguancun</span>
+          <span>北京 · 中关村</span>
         </div>
         <div style={{ display: "flex", flexDirection: "column", maxWidth: 980 }}>
-          <div style={{ display: "flex", fontSize: 82, fontWeight: 700, lineHeight: 0.96 }}>
-            Venture Studio for
+          <div style={{ display: "flex", fontSize: 88, fontWeight: 700, lineHeight: 1.05 }}>
+            让前沿技术
           </div>
-          <div style={{ display: "flex", fontSize: 82, fontWeight: 700, lineHeight: 0.96 }}>
-            Early-Stage AI Innovation.
+          <div style={{ display: "flex", fontSize: 88, fontWeight: 700, lineHeight: 1.05 }}>
+            成为真正的产业力量
           </div>
           <div style={{ display: "flex", marginTop: 34, color: "#aab4c0", fontSize: 28 }}>
-            燕南创新 · From university research to scalable AI companies.
+            燕南创新 · 面向 AI 与前沿科技的早期创业孵化平台
           </div>
         </div>
       </div>

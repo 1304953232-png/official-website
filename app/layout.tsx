@@ -10,7 +10,7 @@ import { siteConfig } from "@/lib/site-config";
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "YAN VENTURES / 燕南创新 | AI Venture Studio",
+    default: "YAN VENTURES / 燕南创新 | AI 早期创业孵化平台",
     template: "%s"
   },
   description: siteConfig.description,
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: siteConfig.name,
-    description: "Venture Studio for Early-Stage AI Innovation.",
+    description: "源自北京大学、扎根中关村的 AI 早期创业孵化平台。",
     url: siteConfig.url,
     siteName: siteConfig.shortName,
     locale: "zh_CN",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: siteConfig.name,
-    description: "Venture Studio for Early-Stage AI Innovation.",
+    description: "源自北京大学、扎根中关村的 AI 早期创业孵化平台。",
     images: ["/opengraph-image"]
   },
   robots: {

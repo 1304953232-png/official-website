@@ -57,7 +57,7 @@ export default async function ActivityCasePage({ params }: ActivityCasePageProps
             className="focus-ring interactive-target mb-10 inline-flex items-center gap-2 rounded-sm text-sm text-muted transition hover:text-foreground"
           >
             <ArrowLeft size={16} aria-hidden />
-            All Case Studies
+            返回全部案例
           </Link>
 
           <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_300px] lg:items-end">
@@ -111,7 +111,7 @@ export default async function ActivityCasePage({ params }: ActivityCasePageProps
       <AnimatedSection className="bg-ivory py-[clamp(76px,10vw,130px)] text-ink">
         <div className="container-shell grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
           <div data-reveal-left>
-            <p className="text-xs uppercase tracking-[0.18em] text-[#76633e]">Program Overview</p>
+            <p className="text-xs uppercase tracking-[0.18em] text-[#76633e]">项目概览</p>
             <h2 className="mt-5 text-[clamp(38px,5vw,70px)] font-semibold leading-[0.95]">从活动现场到长期生态连接</h2>
           </div>
           <div data-reveal-right className="grid gap-10">
@@ -120,7 +120,7 @@ export default async function ActivityCasePage({ params }: ActivityCasePageProps
               <p className="mt-4 text-lg leading-8 text-ink/70">{program.detail}</p>
             </div>
             <div className="border-t border-black/10 pt-8">
-              <h3 className="text-sm uppercase tracking-[0.14em] text-[#76633e]">YAN VENTURES Role</h3>
+              <h3 className="text-sm uppercase tracking-[0.14em] text-[#76633e]">燕南创新参与方式</h3>
               <p className="mt-4 text-lg leading-8 text-ink/70">{program.role}</p>
             </div>
           </div>
@@ -129,7 +129,7 @@ export default async function ActivityCasePage({ params }: ActivityCasePageProps
 
       <AnimatedSection className="section-pad">
         <div className="container-shell grid gap-12 lg:grid-cols-[0.78fr_1.22fr] lg:gap-20">
-          <SectionHeading eyebrow="Key Outcomes" title="活动成果与生态价值" className="mb-0" />
+          <SectionHeading eyebrow="关键成果" title="活动成果与生态价值" className="mb-0" />
           <div className="grid gap-3">
             {program.outcomes.map((outcome, index) => (
               <Card key={outcome} className="grid grid-cols-[48px_1fr] gap-4 p-5 md:p-6">
@@ -144,7 +144,7 @@ export default async function ActivityCasePage({ params }: ActivityCasePageProps
       <AnimatedSection className="bg-background-soft py-[clamp(76px,10vw,130px)]">
         <div className="container-shell">
           <SectionHeading
-            eyebrow="Event Gallery"
+            eyebrow="活动影像"
             title="活动现场"
             text="来自活动资料的真实现场记录。点击图片可查看完整尺寸。"
           />
@@ -182,7 +182,7 @@ export default async function ActivityCasePage({ params }: ActivityCasePageProps
             className="focus-ring group rounded-[8px] border border-line p-5 transition hover:border-gold/60 hover:bg-white/[0.035] md:p-6"
           >
             <span className="flex items-center gap-2 text-xs uppercase tracking-[0.16em] text-muted">
-              <ArrowLeft size={15} aria-hidden /> Previous Case
+              <ArrowLeft size={15} aria-hidden /> 上一个案例
             </span>
             <span className="mt-4 block text-xl font-semibold">{previousProgram.title}</span>
           </Link>
@@ -191,7 +191,7 @@ export default async function ActivityCasePage({ params }: ActivityCasePageProps
             className="focus-ring group rounded-[8px] border border-line p-5 text-right transition hover:border-gold/60 hover:bg-white/[0.035] md:p-6"
           >
             <span className="flex items-center justify-end gap-2 text-xs uppercase tracking-[0.16em] text-muted">
-              Next Case <ArrowRight size={15} aria-hidden />
+              下一个案例 <ArrowRight size={15} aria-hidden />
             </span>
             <span className="mt-4 block text-xl font-semibold">{nextProgram.title}</span>
           </Link>
@@ -199,7 +199,7 @@ export default async function ActivityCasePage({ params }: ActivityCasePageProps
       </AnimatedSection>
 
       <CTASection
-        title="Bring the Next Frontier Project to YAN VENTURES"
+        title="让下一个前沿项目，在这里被真正看见"
         text="如果你正在推进 AI 或前沿科技项目，欢迎提交项目资料，与我们建立联系。"
       />
     </>

@@ -25,9 +25,9 @@ export default function YipaiTechCasePage() {
             className="focus-ring mb-10 inline-flex items-center gap-2 rounded-sm text-sm text-muted transition hover:text-foreground"
           >
             <ArrowLeft size={16} aria-hidden />
-            Companies Built
+            返回企业案例
           </Link>
-          <p className="eyebrow mb-6">Venture-built Company / Industrial AI</p>
+          <p className="eyebrow mb-6">共创企业 / 工业智能</p>
           <h1 className="max-w-5xl text-[clamp(54px,9vw,128px)] font-semibold leading-[0.88]">一湃科技</h1>
           <p className="mt-7 max-w-3xl text-xl leading-8 text-muted">
             从公司设立、种子资本到产业验证，围绕工业具身智能建立可规模化的柔性精密制造能力。
@@ -44,8 +44,8 @@ export default function YipaiTechCasePage() {
       <AnimatedSection className="section-pad">
         <div className="container-shell">
           <SectionHeading
-            eyebrow="Company Building"
-            title="From formation to industrial validation"
+            eyebrow="公司共创"
+            title="从公司设立到产业验证"
             text="燕南创新以机构化联合创始人的方式参与关键节点，不止提供资源连接，也参与战略与资本路径建设。"
           />
           <div className="grid gap-3 md:grid-cols-2">
@@ -61,7 +61,7 @@ export default function YipaiTechCasePage() {
 
       <AnimatedSection className="bg-background-soft py-[clamp(76px,10vw,130px)]">
         <div className="container-shell grid gap-12 lg:grid-cols-[0.78fr_1.22fr]">
-          <SectionHeading eyebrow="Progress" title="Visible operating milestones" className="mb-0" />
+          <SectionHeading eyebrow="阶段进展" title="看得见的执行里程碑" className="mb-0" />
           <div className="divide-y divide-line border-y border-line">
             {caseTimeline.map((item, index) => (
               <div
@@ -80,7 +80,7 @@ export default function YipaiTechCasePage() {
 
       <AnimatedSection className="py-[clamp(76px,10vw,130px)]">
         <div className="container-shell">
-          <SectionHeading eyebrow="Current Signals" title="What has been validated" />
+          <SectionHeading eyebrow="当前验证" title="已经被事实验证的关键信号" />
           <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-4">
             {caseHighlights.map((item) => (
               <Card key={item.label} className="min-h-44 p-5">
@@ -91,13 +91,13 @@ export default function YipaiTechCasePage() {
           </div>
           <Button asChild variant="secondary" className="mt-8">
             <Link href="/case-studies#programs">
-              Explore Ecosystem Programs <ArrowUpRight size={16} />
+              查看生态项目 <ArrowUpRight size={16} />
             </Link>
           </Button>
         </div>
       </AnimatedSection>
 
-      <CTASection title="Building an industrial AI company?" text="向我们介绍你的技术、团队和产业场景。" />
+      <CTASection title="正在创建一家工业智能公司？" text="向我们介绍你的技术、团队和产业场景。" />
     </>
   );
 }

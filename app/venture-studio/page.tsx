@@ -9,7 +9,7 @@ import { Card } from "@/components/ui-card";
 import { ventureComparisons, ventureSteps } from "@/lib/site-data";
 
 export const metadata: Metadata = {
-  title: "Venture Studio | YAN VENTURES",
+  title: "机构化联合创业 | YAN VENTURES",
   description: "了解 YAN VENTURES 以机构化联合创始人方式深度参与 0 到 1 创业过程的 Venture Studio 模式。"
 };
 
@@ -18,17 +18,17 @@ export default function VentureStudioPage() {
     <>
       <PageHero
         eyebrow="Venture Studio"
-        title="Venture Studio"
-        subtitle="Beyond Capital: A Co-Founder Style Venture Studio"
+        title="机构化联合创业"
+        subtitle="不止提供资本，更像联合创始人一样参与公司的创建与成长。"
       />
 
       <div className="sticky top-[104px] z-30 border-y border-line bg-background/74 backdrop-blur-xl">
         <nav className="container-shell flex gap-2 overflow-x-auto py-3 text-xs uppercase tracking-[0.16em] text-muted">
           {[
-            ["Definition", "#definition"],
-            ["Process", "#process"],
-            ["Comparison", "#comparison"],
-            ["Contact", "#venture-contact"]
+            ["模式定义", "#definition"],
+            ["共创流程", "#process"],
+            ["模式比较", "#comparison"],
+            ["提交项目", "#venture-contact"]
           ].map(([label, href]) => (
             <Link
               key={href}
@@ -44,9 +44,9 @@ export default function VentureStudioPage() {
       <AnimatedSection id="definition" className="py-[clamp(64px,8vw,112px)]">
         <div className="container-shell grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           <SectionHeading
-            eyebrow="Definition"
-            title="Beyond Capital"
-            text="YAN VENTURES 不只是提供资金，而是以 Venture Studio 模式深度参与 0 到 1 的创业过程，像机构化联合创始人一样，为项目提供启动资金、共享中台、团队组建、战略制定、产业对接、融资陪跑和公司治理支持。"
+            eyebrow="模式定义"
+            title="超越资本，真正参与创建"
+            text="燕南创新以 Venture Studio 模式深度参与 0 到 1 的创业过程，像机构化联合创始人一样，为项目提供启动资金、共享中台、团队组建、战略制定、产业对接、融资陪跑和公司治理支持。"
           />
           <div id="process" className="grid gap-3 scroll-mt-32">
             {ventureSteps.map((step, index) => (
@@ -66,7 +66,7 @@ export default function VentureStudioPage() {
 
       <AnimatedSection id="comparison" className="bg-background-soft py-[clamp(64px,8vw,112px)]">
         <div className="container-shell">
-          <SectionHeading eyebrow="Comparison" title="Venture Studio vs Traditional Models" />
+          <SectionHeading eyebrow="模式比较" title="三种模式，三种参与深度" />
           <div className="grid gap-3 lg:grid-cols-3">
             {ventureComparisons.map((item) => (
               <Card key={item.model} className="p-6">
@@ -89,12 +89,12 @@ export default function VentureStudioPage() {
             ))}
           </div>
           <Button asChild className="mt-10">
-            <Link href="/contact" id="venture-contact">Submit Project</Link>
+            <Link href="/contact" id="venture-contact">提交项目</Link>
           </Button>
         </div>
       </AnimatedSection>
 
-      <CTASection title="Start from zero. Build with us." />
+      <CTASection title="从零开始，与我们一起把公司做出来" />
     </>
   );
 }

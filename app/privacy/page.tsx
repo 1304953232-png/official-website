@@ -5,7 +5,7 @@ import { AnimatedSection } from "@/components/animated-section";
 import { PageHero } from "@/components/page-hero";
 
 export const metadata: Metadata = {
-  title: "Privacy | YAN VENTURES",
+  title: "隐私说明 | YAN VENTURES",
   description: "YAN VENTURES 项目提交与网站访问隐私说明。"
 };
 
@@ -36,14 +36,14 @@ export default function PrivacyPage() {
   return (
     <>
       <PageHero
-        eyebrow="Privacy"
-        title="Privacy"
-        subtitle="How project information is received, reviewed and protected."
+        eyebrow="隐私说明"
+        title="我们如何使用和保护项目信息"
+        subtitle="只在项目评估、合作匹配与后续联系所需的范围内处理你提交的信息。"
       />
       <AnimatedSection className="pb-[clamp(88px,12vw,160px)]">
         <div className="container-shell grid gap-12 lg:grid-cols-[0.65fr_1.35fr] lg:gap-20">
           <div>
-            <p className="eyebrow">Project Submissions</p>
+            <p className="eyebrow">项目提交信息</p>
             <p className="mt-5 max-w-sm text-sm leading-7 text-muted">
               本说明适用于通过 YAN VENTURES 官网提交的项目与合作信息。更新日期：2026 年 7 月。
             </p>

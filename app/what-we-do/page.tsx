@@ -10,38 +10,38 @@ import { Card } from "@/components/ui-card";
 import { activityPrograms, services } from "@/lib/site-data";
 
 export const metadata: Metadata = {
-  title: "What We Do | YAN VENTURES",
+  title: "业务体系 | YAN VENTURES",
   description: "燕南创新围绕科技成果转化、创业公司赋能、校友企业孵化和生态活动运营提供系统化支持。"
 };
 
 const support = [
-  ["Strategy", "战略梳理、商业概念验证、产业趋势判断和融资节奏规划。"],
-  ["Company Formation", "股权架构、工商注册、园区选址、政策申报和企业落地。"],
-  ["IP & Technology Transfer", "技术确权、专利申请、成果转化和产学研合作落地。"],
-  ["Industrial Connection", "真实产业场景、客户资源、上下游协同和商业订单导入。"],
-  ["Fundraising", "融资陪跑、路演辅导、FA 支持和后续轮次资本对接。"],
-  ["Governance", "财务、法务、合规咨询和政府补贴申请支持。"]
+  ["战略与商业判断", "战略梳理、商业概念验证、产业趋势判断和融资节奏规划。"],
+  ["公司设立与落地", "股权架构、工商注册、园区选址、政策申报和企业落地。"],
+  ["知识产权与成果转化", "技术确权、专利申请、成果转化和产学研合作落地。"],
+  ["产业资源连接", "真实产业场景、客户资源、上下游协同和商业订单导入。"],
+  ["融资与资本规划", "融资陪跑、路演辅导、财务顾问支持和后续轮次资本对接。"],
+  ["治理与合规支持", "财务、法务、合规咨询和政府补贴申请支持。"]
 ].map(([title, text]) => ({ title, text }));
 
 const programCapabilities = [
-  ["Project Sourcing", "通过 AI 创业营、城市赛事和高校社群持续发现早期科技项目。"],
-  ["Roadshow & Review", "组织路演、专家评审、投融资对接和赛后改进建议。"],
-  ["City & Policy Link", "连接海淀、中关村、宁波、大湾区等城市级产业政策和人才项目。"],
-  ["Founder Community", "通过参访、闭门晚宴、导师分享和创业者社群沉淀长期关系。"]
+  ["项目发现", "通过 AI 创业营、城市赛事和高校社群持续发现早期科技项目。"],
+  ["路演与专业评审", "组织路演、专家评审、投融资对接和赛后改进建议。"],
+  ["城市与政策连接", "连接海淀、中关村、宁波、大湾区等城市级产业政策和人才项目。"],
+  ["创业者长期社区", "通过参访、闭门交流、导师分享和创业者社群沉淀长期关系。"]
 ].map(([title, text]) => ({ title, text }));
 
 export default function WhatWeDoPage() {
   return (
     <>
       <PageHero
-        eyebrow="What We Do"
-        title="What We Do"
+        eyebrow="业务体系"
+        title="我们如何支持创业者"
         subtitle="围绕科技成果转化、创业公司赋能、校友企业孵化和生态活动运营，提供全周期、多维度支持。"
       />
 
       <AnimatedSection className="section-pad">
         <div className="container-shell">
-          <SectionHeading eyebrow="Service Categories" title="Built Around Founders and Research Teams" />
+          <SectionHeading eyebrow="核心业务" title="围绕科研团队与创业者的关键需求" />
           <div className="grid gap-4 lg:grid-cols-3">
             {services.map((service) => {
               const Icon = service.icon;
@@ -68,8 +68,8 @@ export default function WhatWeDoPage() {
       <AnimatedSection className="bg-background-soft py-[clamp(76px,10vw,130px)]">
         <div className="container-shell">
           <SectionHeading
-            eyebrow="Program Operations"
-            title="Activities as a high-density sourcing engine"
+            eyebrow="生态项目运营"
+            title="把活动做成高密度的项目发现现场"
             text="通过 AI 创业营、产业参访、全球人才赛事和城市创新大赛，持续发现项目并连接政策、产业与资本资源。"
           />
           <div className="grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
@@ -82,7 +82,7 @@ export default function WhatWeDoPage() {
               ))}
             </div>
             <Card className="p-6 md:p-8">
-              <p className="eyebrow mb-6">Recent Program Signals</p>
+              <p className="eyebrow mb-6">近期项目与活动</p>
               <div className="grid gap-4">
                 {activityPrograms.map((program, index) => (
                   <Link
@@ -112,11 +112,11 @@ export default function WhatWeDoPage() {
         <div className="container-shell">
           <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="text-xs uppercase tracking-[0.18em] text-[#76633e]">Support Matrix</p>
-              <h2 className="mt-5 text-[clamp(38px,6vw,84px)] font-semibold leading-[0.95]">Full-Cycle Support</h2>
+              <p className="text-xs uppercase tracking-[0.18em] text-[#76633e]">全周期支持</p>
+              <h2 className="mt-5 text-[clamp(38px,6vw,84px)] font-semibold leading-[0.95]">从公司设立到产业与资本落地</h2>
             </div>
             <Button asChild variant="secondary">
-              <Link href="/contact">Contact Us</Link>
+              <Link href="/contact">联系我们</Link>
             </Button>
           </div>
           <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
@@ -130,7 +130,7 @@ export default function WhatWeDoPage() {
         </div>
       </AnimatedSection>
 
-      <CTASection title="Looking for a venture-building partner?" label="Contact Us" />
+      <CTASection title="寻找一位长期共创伙伴？" label="与我们沟通" />
     </>
   );
 }

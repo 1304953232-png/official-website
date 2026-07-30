@@ -118,16 +118,16 @@ async function sendEmail(id: string, submission: SubmissionPayload) {
   const resend = new Resend(apiKey);
 
   const emailText = [
-    `Submission ID: ${id}`,
-    `Name: ${submission.name}`,
-    `Organization: ${submission.organization || "-"}`,
-    `Email: ${submission.email}`,
-    `Project Stage: ${submission.stage}`,
-    `Support Needed: ${submission.support}`,
-    `Project Link: ${submission.projectUrl || "-"}`,
-    `Source: ${submission.source}`,
+    `提交编号：${id}`,
+    `联系人：${submission.name}`,
+    `团队或机构：${submission.organization || "未填写"}`,
+    `联系邮箱：${submission.email}`,
+    `项目阶段：${submission.stage}`,
+    `希望获得的支持：${submission.support}`,
+    `项目链接：${submission.projectUrl || "未填写"}`,
+    `来源页面：${submission.source}`,
     "",
-    "Project Introduction:",
+    "项目介绍：",
     submission.message
   ].join("\n");
 

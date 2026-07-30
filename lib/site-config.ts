@@ -5,5 +5,5 @@ export const siteConfig = {
   url: (process.env.NEXT_PUBLIC_SITE_URL || "https://official-website-sage-five.vercel.app").replace(/\/$/, ""),
   description:
     "源自北京大学、总部设于北京中关村的 AI 早期创业孵化平台与全栈式国际科创生态平台。",
-  location: "Beijing · Zhongguancun"
+  location: "北京 · 中关村"
 } as const;

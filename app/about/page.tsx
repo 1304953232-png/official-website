@@ -7,35 +7,35 @@ import { Card } from "@/components/ui-card";
 import { aboutCards } from "@/lib/site-data";
 
 export const metadata: Metadata = {
-  title: "About YAN VENTURES / 燕南创新",
+  title: "关于燕南创新 | YAN VENTURES",
   description: "了解燕南创新的公司定位、使命与 AI 早期创业孵化平台价值。"
 };
 
 const positioning = [
-  ["Innovation Think Tank", "围绕前沿科技趋势、产业痛点和高校成果转化路径形成系统判断。"],
-  ["Venture Services", "为早期团队提供公司设立、团队组建、政策申报和治理支持。"],
-  ["Incubation & Investment", "通过孵化与早期资本支持帮助项目完成从 0 到 1 的关键跨越。"],
-  ["Global Frontier Resources", "链接高校、科研院所、产业资本、政府政策与全球创业者。"]
+  ["创新判断", "围绕前沿科技趋势、产业痛点和高校成果转化路径形成系统判断。"],
+  ["创服运营", "为早期团队提供公司设立、团队组建、政策申报和治理支持。"],
+  ["孵化投资", "通过孵化与早期资本支持帮助项目完成从 0 到 1 的关键跨越。"],
+  ["全球科创资源", "链接高校、科研院所、产业资本、政府政策与全球创业者。"]
 ].map(([title, text]) => ({ title, text }));
 
 export default function AboutPage() {
   return (
     <>
       <PageHero
-        eyebrow="About"
-        title="About YAN VENTURES"
+        eyebrow="关于我们"
+        title="关于燕南创新"
         subtitle="源自北京大学、扎根中关村的 AI 早期创业孵化平台。"
       />
 
       <AnimatedSection className="section-pad">
         <div className="container-shell grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
           <SectionHeading
-            eyebrow="Company Overview"
-            title="From Research to Real-World Impact"
+            eyebrow="机构定位"
+            title="从科研成果到产业价值"
             text="燕南创新（YAN VENTURES）是源自北京大学、总部设于北京中关村的全栈式国际科创生态平台，深度扎根中国科技创新核心区域，链接全球前沿科创资源，构建从创意到产业化的完整生态闭环。"
           />
           <Card className="p-8">
-            <p className="eyebrow mb-5">Our Mission</p>
+            <p className="eyebrow mb-5">我们的使命</p>
             <p className="text-2xl leading-10 text-foreground">
               搭建高校、资本、产业、政府多方协同生态，赋能科技成果转化。
             </p>
@@ -48,7 +48,7 @@ export default function AboutPage() {
 
       <AnimatedSection className="bg-background-soft py-[clamp(80px,10vw,140px)]">
         <div className="container-shell">
-          <SectionHeading eyebrow="Positioning" title="A Full-Stack Innovation Platform" />
+          <SectionHeading eyebrow="我们是谁" title="贯穿创新全链条的科创平台" />
           <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-4">
             {positioning.map((item) => (
               <InfoCard key={item.title} title={item.title} text={item.text} />
@@ -59,7 +59,7 @@ export default function AboutPage() {
 
       <AnimatedSection className="section-pad">
         <div className="container-shell">
-          <SectionHeading eyebrow="Timeline" title="Building the Venture Ecosystem" />
+          <SectionHeading eyebrow="成长坐标" title="扎根中关村，连接全球创新" />
           <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-4">
             {aboutCards.map((card) => {
               const Icon = card.icon;

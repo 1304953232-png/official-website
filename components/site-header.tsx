@@ -89,7 +89,7 @@ export function SiteHeader() {
           </div>
         </Link>
 
-        <nav aria-label="Primary navigation" className="hidden items-center gap-2 lg:flex">
+        <nav aria-label="主导航" className="hidden items-center gap-2 lg:flex">
           {navigation.map((group) => (
             <div key={group.title} onMouseEnter={() => setActiveGroup(group.title)}>
               <button
@@ -105,13 +105,13 @@ export function SiteHeader() {
 
         <div className="hidden items-center gap-3 lg:flex">
           <Button asChild size="sm" variant="secondary">
-            <Link href="/contact">Submit Project</Link>
+            <Link href="/contact">提交项目</Link>
           </Button>
         </div>
 
         <button
           type="button"
-          aria-label="Toggle menu"
+          aria-label="展开或收起菜单"
           aria-expanded={mobileOpen}
           onClick={() => setMobileOpen((value) => !value)}
           className="focus-ring inline-flex h-10 w-10 items-center justify-center rounded-[7px] border border-line lg:hidden"

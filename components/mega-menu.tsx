@@ -20,7 +20,7 @@ export function MegaMenu({
         <div className="rounded-[7px] border border-line bg-white/[0.03] p-5">
           <p className="eyebrow mb-4">{group.title}</p>
           <p className="text-sm leading-6 text-muted">
-            Navigate YAN VENTURES through a focused institutional structure.
+            从机构定位到业务实践，快速了解燕南创新如何参与前沿科技公司的创建。
           </p>
         </div>
         <div className="grid gap-2">

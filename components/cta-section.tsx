@@ -7,7 +7,7 @@ export function CTASection({
   title,
   text,
   href = "/contact",
-  label = "Submit Your Project"
+  label = "提交项目"
 }: {
   title: string;
   text?: string;
@@ -21,7 +21,7 @@ export function CTASection({
           <div className="grid-mask absolute inset-0 opacity-30" aria-hidden />
           <div className="relative grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
             <div>
-              <p className="eyebrow mb-5">Connect</p>
+              <p className="eyebrow mb-5">建立联系</p>
               <h2 className="max-w-4xl text-[clamp(40px,7vw,92px)] font-semibold leading-[0.92]">{title}</h2>
               {text ? <p className="mt-6 max-w-2xl text-lg leading-8 text-muted">{text}</p> : null}
             </div>

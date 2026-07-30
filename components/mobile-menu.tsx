@@ -18,7 +18,7 @@ export function MobileMenu({
 
   return (
     <div className="glass mx-auto mt-2 max-w-[1320px] rounded-[8px] p-4 lg:hidden">
-      <nav className="grid gap-2" aria-label="Mobile navigation">
+      <nav className="grid gap-2" aria-label="移动端导航">
         {groups.map((group) => {
           const expanded = openGroup === group.title;
           return (
@@ -51,7 +51,7 @@ export function MobileMenu({
         })}
         <Button asChild className="mt-3">
           <Link href="/contact" onClick={onClose}>
-            Submit Project
+            提交项目
           </Link>
         </Button>
       </nav>
