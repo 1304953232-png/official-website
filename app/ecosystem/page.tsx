@@ -15,6 +15,8 @@ export const metadata: Metadata = {
 };
 
 const layerNames = ["University Research", "Founder Communities", "Capital Network", "Industrial & Policy Support"];
+const featuredStatIndexes = new Set([0, 2, 5, 6, 8, 11, 12, 13]);
+const featuredEcosystemStats = ecosystemStats.filter((_, index) => featuredStatIndexes.has(index));
 
 export default function EcosystemPage() {
   return (
@@ -27,11 +29,15 @@ export default function EcosystemPage() {
 
       <AnimatedSection className="section-pad">
         <div className="container-shell">
-          <SectionHeading eyebrow="Ecosystem Numbers" title="A Network Built for Frontier Founders" />
+          <SectionHeading
+            eyebrow="Selected Network Signals"
+            title="A focused network for frontier founders"
+            text="数字用于说明燕南创新可触达的高校、科研、资本与创业者网络，不等同于投资组合规模。"
+          />
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {ecosystemStats.map((stat, index) => (
-              <Card key={stat.label} className={index % 5 === 0 ? "min-h-48 p-6 sm:col-span-2" : "min-h-40 p-6"}>
-                <div className="text-[clamp(34px,5vw,72px)] font-semibold leading-none">
+            {featuredEcosystemStats.map((stat) => (
+              <Card key={stat.label} className="min-h-40 p-6">
+                <div className="text-[clamp(34px,5vw,68px)] font-semibold leading-none">
                   <CountUp value={stat.value} />
                 </div>
                 <div className="mt-5 text-sm leading-5 text-muted">{stat.label}</div>
@@ -43,7 +49,7 @@ export default function EcosystemPage() {
 
       <AnimatedSection className="bg-background-soft py-[clamp(80px,10vw,140px)]">
         <div className="container-shell">
-          <SectionHeading eyebrow="Ecosystem Layers" title="Four Layers of Venture Support" />
+          <SectionHeading eyebrow="Ecosystem Layers" title="Four layers of venture support" />
           <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
             {ecosystemCards.map((card, index) => {
               const Icon = card.icon;
@@ -64,18 +70,22 @@ export default function EcosystemPage() {
       </AnimatedSection>
 
       <AnimatedSection className="section-pad">
-        <div className="container-shell">
+        <div className="container-shell grid gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
           <SectionHeading
             eyebrow="YAN Ecosystem"
             title="An integrated platform for venture creation"
-            text="燕缘生态覆盖 Lab、专业孵化器、国际科创大赛、创投、人才社区、媒体智库、会客厅与公益服务，形成协同运转的科创平台。"
+            text="从 Lab、专业孵化器和创投，到人才社区、科创媒体与长期公益，形成协同运转的创业支持平台。"
+            className="mb-0"
           />
-          <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-            {yanYuanEcosystem.map((item) => (
-              <Card key={item.title} className="p-5">
-                <h2 className="text-xl font-medium">{item.title}</h2>
-                <p className="mt-4 text-sm leading-6 text-muted">{item.text}</p>
-              </Card>
+          <div className="grid gap-x-8 md:grid-cols-2">
+            {yanYuanEcosystem.map((item, index) => (
+              <div key={item.title} data-reveal-item className="grid grid-cols-[44px_1fr] gap-4 border-t border-line py-5">
+                <span className="text-sm text-gold">{String(index + 1).padStart(2, "0")}</span>
+                <div>
+                  <h3 className="text-xl font-medium">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-muted">{item.text}</p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -91,11 +101,11 @@ export default function EcosystemPage() {
               </h2>
             </div>
             <Button asChild variant="secondary">
-              <Link href="/case-studies">View Activities</Link>
+              <Link href="/case-studies#programs">View All Activities</Link>
             </Button>
           </div>
           <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
-            {activityPrograms.map((program) => (
+            {activityPrograms.slice(0, 3).map((program) => (
               <ProgramCard key={program.slug} program={program} variant="light" />
             ))}
           </div>

@@ -44,7 +44,7 @@ export default function CapitalPage() {
             <p className="text-xs uppercase tracking-[0.18em] text-[#76633e]">Notice</p>
             <h2 className="mt-5 text-[clamp(38px,6vw,84px)] font-semibold leading-[0.95]">Responsible disclosure</h2>
             <p className="mt-8 text-lg leading-8 text-ink/70">
-              未确认基金规模、备案信息、具体合作机构不在页面写死；相关信息以正式披露为准，未确认内容使用 Coming Soon / To Be Announced。
+              本页仅介绍 YAN VENTURES 的资本协同方向，不构成募集说明、投资建议或对任何基金设立与备案状态的承诺。正式信息以依法披露文件为准。
             </p>
           </div>
         </div>

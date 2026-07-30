@@ -311,8 +311,8 @@ export const caseHighlights = [
 ];
 
 export const fundItems = [
-  { title: "燕南一期基金", text: "元禾重元人工智能创业投资基金，双管理人早期创投基金设立中。", status: "基金规模 1 亿", icon: BrainCircuit },
-  { title: "Co-GP Model", text: "计划与燕缘创投成立 Co-GP 早期创投基金，形成资源与资本的深度联动。", status: "设立中 / To Be Announced", icon: Handshake },
+  { title: "燕南一期基金", text: "元禾重元人工智能创业投资基金，双管理人早期创投基金设立中。", status: "目标规模 1 亿元 / 设立中", icon: BrainCircuit },
+  { title: "Co-GP Model", text: "计划与燕缘创投成立 Co-GP 早期创投基金，形成资源与资本的深度联动。", status: "筹备中 / To Be Announced", icon: Handshake },
   { title: "Technology Transfer", text: "支持高校科研成果从实验室进入产业场景，联动技术转移中心与高校创新平台。", status: "Active Thesis", icon: Landmark },
   { title: "Venture Building", text: "不止投资，更参与公司从 0 到 1 的创建、团队搭建、产业验证和融资成长。", status: "Active Thesis", icon: ArrowUpRight }
 ];

@@ -1,31 +1,67 @@
-﻿import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowUpRight, MapPin } from "lucide-react";
 import { footerNavigation } from "@/lib/navigation";
+import { siteConfig } from "@/lib/site-config";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-line bg-background py-12">
-      <div className="container-shell grid gap-10 md:grid-cols-[1fr_1.2fr]">
-        <div>
-          <Image
-            src="/brand/yan-ventures-logo-light.png"
-            alt="YAN VENTURES 燕南创新"
-            width={280}
-            height={215}
-            className="h-auto w-64 opacity-95"
-          />
-          <p className="mt-5 max-w-sm text-sm leading-6 text-muted">Venture Studio for Early-Stage AI Innovation</p>
-          <p className="mt-2 max-w-sm text-sm leading-6 text-muted">From university research to scalable AI companies.</p>
+    <footer className="border-t border-line bg-background py-12 md:py-16">
+      <div className="container-shell">
+        <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr_0.7fr] lg:gap-16">
+          <div>
+            <Image
+              src="/brand/yan-ventures-logo-light.png"
+              alt="YAN VENTURES 燕南创新"
+              width={280}
+              height={215}
+              className="h-auto w-56 opacity-95"
+            />
+            <p className="mt-6 max-w-md text-base leading-7 text-foreground">
+              Venture Studio for Early-Stage AI Innovation.
+            </p>
+            <p className="mt-2 max-w-md text-sm leading-6 text-muted">
+              From university research to scalable AI companies.
+            </p>
+          </div>
+
+          <div>
+            <p className="eyebrow mb-5">Explore</p>
+            <nav className="grid grid-cols-2 gap-x-5 gap-y-3 text-sm text-muted" aria-label="Footer navigation">
+              {footerNavigation.map((item) => (
+                <Link key={item.href} href={item.href} className="transition hover:text-foreground">
+                  {item.title}
+                </Link>
+              ))}
+            </nav>
+          </div>
+
+          <div>
+            <p className="eyebrow mb-5">Connect</p>
+            <div className="flex items-center gap-2 text-sm text-muted">
+              <MapPin size={15} className="text-gold" aria-hidden />
+              {siteConfig.location}
+            </div>
+            <Link
+              href="/contact"
+              className="focus-ring mt-5 inline-flex items-center gap-2 rounded-sm text-sm font-medium text-foreground transition hover:text-gold"
+            >
+              Submit a Project
+              <ArrowUpRight size={15} aria-hidden />
+            </Link>
+          </div>
         </div>
-        <div className="grid gap-8">
-          <nav className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-muted" aria-label="Footer navigation">
-            {footerNavigation.map((item) => (
-              <Link key={item.href} href={item.href} className="transition hover:text-foreground">
-                {item.title}
-              </Link>
-            ))}
-          </nav>
-          <div className="text-sm text-muted">© 2026 YAN VENTURES. All rights reserved.</div>
+
+        <div className="mt-12 grid gap-5 border-t border-line pt-6 text-xs leading-6 text-muted md:grid-cols-[1fr_auto] md:items-end">
+          <div>
+            <p>© 2026 {siteConfig.shortName}. All rights reserved.</p>
+            <p className="mt-1 max-w-3xl">
+              本网站内容仅用于机构与业务介绍，不构成投资建议、募集说明或任何承诺。
+            </p>
+          </div>
+          <Link href="/privacy" className="transition hover:text-foreground">
+            Privacy
+          </Link>
         </div>
       </div>
     </footer>

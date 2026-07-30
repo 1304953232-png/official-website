@@ -13,6 +13,8 @@ type SubmissionPayload = {
   organization: string;
   email: string;
   stage: string;
+  support: string;
+  projectUrl: string;
   message: string;
   consent: boolean;
   startedAt: number;
@@ -39,6 +41,8 @@ function validatePayload(body: Record<string, unknown>): { data?: SubmissionPayl
   const organization = asSingleLine(body.organization);
   const email = asText(body.email).toLowerCase();
   const stage = asSingleLine(body.stage);
+  const support = asSingleLine(body.support);
+  const projectUrl = asText(body.projectUrl);
   const message = asText(body.message);
   const source = asText(body.source) || "/contact";
   const startedAt = typeof body.startedAt === "number" ? body.startedAt : 0;
@@ -49,6 +53,16 @@ function validatePayload(body: Record<string, unknown>): { data?: SubmissionPayl
     return { error: "请填写有效邮箱。" };
   }
   if (!stage || stage.length > 80) return { error: "请选择项目阶段。" };
+  if (!support || support.length > 100) return { error: "请选择希望获得的支持。" };
+  if (projectUrl.length > 500) return { error: "项目链接过长。" };
+  if (projectUrl) {
+    try {
+      const url = new URL(projectUrl);
+      if (!["http:", "https:"].includes(url.protocol)) return { error: "请填写有效项目链接。" };
+    } catch {
+      return { error: "请填写完整的项目链接，例如 https://example.com。" };
+    }
+  }
   if (message.length < 20 || message.length > 5000) {
     return { error: "项目介绍请填写 20 到 5000 个字符。" };
   }
@@ -58,7 +72,18 @@ function validatePayload(body: Record<string, unknown>): { data?: SubmissionPayl
   }
 
   return {
-    data: { name, organization, email, stage, message, consent: true, startedAt, source: source.slice(0, 200) }
+    data: {
+      name,
+      organization,
+      email,
+      stage,
+      support,
+      projectUrl,
+      message,
+      consent: true,
+      startedAt,
+      source: source.slice(0, 200)
+    }
   };
 }
 
@@ -98,6 +123,8 @@ async function sendEmail(id: string, submission: SubmissionPayload) {
     `Organization: ${submission.organization || "-"}`,
     `Email: ${submission.email}`,
     `Project Stage: ${submission.stage}`,
+    `Support Needed: ${submission.support}`,
+    `Project Link: ${submission.projectUrl || "-"}`,
     `Source: ${submission.source}`,
     "",
     "Project Introduction:",

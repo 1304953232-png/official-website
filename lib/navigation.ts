@@ -64,9 +64,9 @@ export const navigation: NavGroup[] = [
     title: "Cases",
     items: [
       {
-        title: "Case Studies",
+        title: "Companies & Programs",
         href: "/case-studies",
-        description: "Incubation in action."
+        description: "企业创建案例、创业营与产业创新项目。"
       }
     ]
   },
@@ -84,10 +84,11 @@ export const navigation: NavGroup[] = [
 
 export const footerNavigation = [
   { title: "About", href: "/about" },
-  { title: "What We Do", href: "/what-we-do" },
   { title: "Venture Studio", href: "/venture-studio" },
   { title: "Ecosystem", href: "/ecosystem" },
   { title: "Focus Areas", href: "/focus-areas" },
-  { title: "Case Studies", href: "/case-studies" },
+  { title: "Companies & Programs", href: "/case-studies" },
+  { title: "Capital", href: "/capital" },
+  { title: "Team", href: "/team" },
   { title: "Contact", href: "/contact" }
 ];

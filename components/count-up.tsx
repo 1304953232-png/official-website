@@ -15,7 +15,7 @@ export function CountUp({ value }: { value: string }) {
   const inView = useInView(ref, { once: true, margin: "-10% 0px" });
   const reduceMotion = useReducedMotion();
   const parsed = useMemo(() => parseValue(value), [value]);
-  const [current, setCurrent] = useState(reduceMotion ? parsed.number : 0);
+  const [current, setCurrent] = useState(0);
 
   useEffect(() => {
     if (!inView || reduceMotion) {
