@@ -14,7 +14,12 @@ export function AbstractCanvas() {
     let width = 0;
     let height = 0;
     let frame = 0;
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    let active = true;
+    let lastDraw = 0;
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+    const dpr = Math.min(window.devicePixelRatio || 1, isMobile ? 1 : 1.5);
+    const lineCount = isMobile ? 16 : 24;
+    const frameInterval = 1000 / (isMobile ? 20 : 30);
 
     const resize = () => {
       width = window.innerWidth;
@@ -27,12 +32,23 @@ export function AbstractCanvas() {
     };
 
     const draw = (time: number) => {
+      if (!active || document.hidden) {
+        frame = 0;
+        return;
+      }
+
+      if (time - lastDraw < frameInterval) {
+        frame = requestAnimationFrame(draw);
+        return;
+      }
+
+      lastDraw = time;
       ctx.clearRect(0, 0, width, height);
       ctx.globalCompositeOperation = "lighter";
 
-      for (let i = 0; i < 42; i += 1) {
+      for (let i = 0; i < lineCount; i += 1) {
         const x = ((i * 127 + time * 0.012) % (width + 220)) - 110;
-        const y = height * 0.18 + Math.sin(i * 0.7 + time * 0.0007) * 140 + i * 7;
+        const y = height * 0.18 + Math.sin(i * 0.7 + time * 0.0007) * 140 + i * 11;
         const alpha = 0.04 + (i % 5) * 0.006;
         ctx.strokeStyle = i % 3 === 0 ? `rgba(200,169,106,${alpha})` : `rgba(110,139,255,${alpha})`;
         ctx.lineWidth = 1;
@@ -45,12 +61,45 @@ export function AbstractCanvas() {
       frame = requestAnimationFrame(draw);
     };
 
+    const start = () => {
+      if (!frame && active && !document.hidden) {
+        lastDraw = 0;
+        frame = requestAnimationFrame(draw);
+      }
+    };
+
+    const stop = () => {
+      if (frame) {
+        cancelAnimationFrame(frame);
+        frame = 0;
+      }
+    };
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        active = entry.isIntersecting;
+        if (active) start();
+        else stop();
+      },
+      { rootMargin: "120px 0px" }
+    );
+
+    const handleVisibility = () => {
+      if (document.hidden) stop();
+      else start();
+    };
+
     resize();
+    observer.observe(canvas);
     window.addEventListener("resize", resize);
-    frame = requestAnimationFrame(draw);
+    document.addEventListener("visibilitychange", handleVisibility);
+    start();
+
     return () => {
-      cancelAnimationFrame(frame);
+      stop();
+      observer.disconnect();
       window.removeEventListener("resize", resize);
+      document.removeEventListener("visibilitychange", handleVisibility);
     };
   }, []);
 

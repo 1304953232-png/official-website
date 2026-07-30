@@ -40,38 +40,37 @@ export function useRevealAnimation<T extends HTMLElement>(
       }
 
       const revealY = y ?? (isMobile ? 26 : 96);
-      const revealDuration = isMobile ? Math.min(duration, 0.72) : Math.max(duration, 1.02);
+      const revealDuration = isMobile ? Math.min(duration, 0.68) : Math.max(duration, 0.88);
       const staggerItems = isMobile ? [] : gsap.utils.toArray<HTMLElement>(staggerSelector, root);
       const leftItems = gsap.utils.toArray<HTMLElement>("[data-reveal-left]", root);
       const rightItems = gsap.utils.toArray<HTMLElement>("[data-reveal-right]", root);
 
       gsap.set(root, {
         autoAlpha: 0,
-        clipPath: isMobile ? "none" : "inset(12% 0% 0% 0%)",
-        rotateX: isMobile ? 0 : 16,
-        rotateY: isMobile ? 0 : -7,
-        scale: isMobile ? 1 : 0.94,
-        filter: isMobile ? "none" : "blur(16px)",
+        rotateX: isMobile ? 0 : 5,
+        rotateY: isMobile ? 0 : -2,
+        scale: isMobile ? 1 : 0.985,
         transformPerspective: 1200,
-        y: revealY
+        y: isMobile ? revealY : Math.min(revealY, 56)
       });
-      gsap.set(leftItems, { autoAlpha: 0, filter: isMobile ? "none" : "blur(12px)", y: isMobile ? 22 : 84, scale: isMobile ? 1 : 0.96 });
+      gsap.set(leftItems, {
+        autoAlpha: 0,
+        y: isMobile ? 22 : 58,
+        scale: isMobile ? 1 : 0.98
+      });
       gsap.set(rightItems, {
         autoAlpha: 0,
-        filter: isMobile ? "none" : "blur(12px)",
-        rotateY: isMobile ? 0 : -16,
-        scale: isMobile ? 1 : 0.94,
-        x: isMobile ? 0 : 104,
+        rotateY: isMobile ? 0 : -8,
+        scale: isMobile ? 1 : 0.975,
+        x: isMobile ? 0 : 72,
         y: isMobile ? 22 : 0
       });
       gsap.set(staggerItems, {
         autoAlpha: 0,
-        clipPath: isMobile ? "none" : "inset(18% 0% 0% 0%)",
-        filter: isMobile ? "none" : "blur(12px)",
-        rotateX: isMobile ? 0 : 14,
-        rotateY: isMobile ? 0 : -9,
-        scale: isMobile ? 1 : 0.92,
-        y: isMobile ? 26 : 92,
+        rotateX: isMobile ? 0 : 8,
+        rotateY: isMobile ? 0 : -4,
+        scale: isMobile ? 1 : 0.97,
+        y: isMobile ? 26 : 62,
         transformPerspective: 1000
       });
 
@@ -86,15 +85,13 @@ export function useRevealAnimation<T extends HTMLElement>(
 
         timeline.to(root, {
           autoAlpha: 1,
-          clipPath: "inset(0% 0% 0% 0%)",
-          filter: "blur(0px)",
           rotateX: 0,
           rotateY: 0,
           scale: 1,
           y: 0,
           duration: revealDuration,
           ease: "expo.out",
-          clearProps: "clipPath,filter,transform"
+          clearProps: "transform"
         });
 
         if (leftItems.length > 0 || rightItems.length > 0) {
@@ -102,13 +99,12 @@ export function useRevealAnimation<T extends HTMLElement>(
             leftItems,
             {
               autoAlpha: 1,
-              filter: "blur(0px)",
               scale: 1,
               y: 0,
-              duration: 1,
+              duration: 0.82,
               ease: "expo.out",
               stagger: 0.1,
-              clearProps: "filter,transform"
+              clearProps: "transform"
             },
             "-=0.56"
           );
@@ -116,15 +112,14 @@ export function useRevealAnimation<T extends HTMLElement>(
             rightItems,
             {
               autoAlpha: 1,
-              filter: "blur(0px)",
               rotateY: 0,
               scale: 1,
               x: 0,
               y: 0,
-              duration: 1.08,
+              duration: 0.88,
               ease: "expo.out",
               stagger: 0.08,
-              clearProps: "filter,transform"
+              clearProps: "transform"
             },
             "-=0.76"
           );
@@ -135,19 +130,17 @@ export function useRevealAnimation<T extends HTMLElement>(
             staggerItems,
             {
               autoAlpha: 1,
-              clipPath: "inset(0% 0% 0% 0%)",
-              filter: "blur(0px)",
               rotateX: 0,
               rotateY: 0,
               scale: 1,
               y: 0,
-              duration: 0.96,
+              duration: 0.82,
               ease: "expo.out",
               stagger: {
                 amount: Math.min(staggerItems.length * 0.085, 0.72),
                 from: "start"
               },
-              clearProps: "clipPath,filter,transform"
+              clearProps: "transform"
             },
             "-=0.52"
           );

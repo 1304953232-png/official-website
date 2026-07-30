@@ -19,9 +19,8 @@ export function Hero() {
   const heroRef = useRef<HTMLElement>(null);
 
   useParallaxMouse(heroRef, [
-    { selector: "[data-hero-glow]", strength: 42, rotate: 2 },
-    { selector: ".grid-mask", strength: 18 },
-    { selector: "[data-hero-content]", strength: 12, rotate: 1.2 }
+    { selector: ".hero-orb", strength: 24, rotate: 1.4 },
+    { selector: "[data-hero-content]", strength: 6, rotate: 0.45 }
   ]);
 
   useGSAP(
@@ -39,13 +38,11 @@ export function Hero() {
 
       gsap.set(titleLines, {
         autoAlpha: 0,
-        clipPath: "inset(0% 0% 100% 0%)",
-        filter: isMobile ? "blur(8px)" : "blur(22px)",
         scale: isMobile ? 0.97 : 0.92,
         yPercent: isMobile ? 86 : 145,
         rotateX: isMobile ? 0 : -18
       });
-      gsap.set(delayedItems, { autoAlpha: 0, filter: "blur(14px)", y: isMobile ? 24 : 58, scale: isMobile ? 1 : 0.96 });
+      gsap.set(delayedItems, { autoAlpha: 0, y: isMobile ? 24 : 58, scale: isMobile ? 1 : 0.96 });
       gsap.set(glowLayers, { autoAlpha: 0.42, scale: 0.76 });
 
       gsap
@@ -55,14 +52,12 @@ export function Hero() {
           titleLines,
           {
             autoAlpha: 1,
-            clipPath: "inset(0% 0% 0% 0%)",
-            filter: "blur(0px)",
             scale: 1,
             yPercent: 0,
             rotateX: 0,
             duration: isMobile ? 0.82 : 1.18,
             stagger: isMobile ? 0.1 : 0.18,
-            clearProps: "clipPath,filter,transform"
+            clearProps: "transform"
           },
           "-=0.78"
         )
@@ -70,12 +65,11 @@ export function Hero() {
           delayedItems,
           {
             autoAlpha: 1,
-            filter: "blur(0px)",
             scale: 1,
             y: 0,
             duration: isMobile ? 0.7 : 1.02,
             stagger: isMobile ? 0.08 : 0.14,
-            clearProps: "filter,transform"
+            clearProps: "transform"
           },
           "-=0.28"
         );
@@ -94,20 +88,7 @@ export function Hero() {
           }
         });
 
-        gsap.to(glowLayers, {
-          yPercent: (index) => (index % 2 === 0 ? 34 : -28),
-          xPercent: (index) => (index % 2 === 0 ? -16 : 18),
-          scale: (index) => (index % 2 === 0 ? 1.2 : 0.86),
-          ease: "none",
-          scrollTrigger: {
-            trigger: heroRef.current,
-            start: "top top",
-            end: "bottom top",
-            scrub: true
-          }
-        });
-
-        gsap.to(".hero-orb", {
+        const orbTween = gsap.to(".hero-orb", {
           y: (index) => (index % 2 === 0 ? -32 : 38),
           x: (index) => (index % 2 === 0 ? 24 : -28),
           rotate: (index) => (index % 2 === 0 ? 12 : -10),
@@ -115,7 +96,18 @@ export function Hero() {
           ease: "sine.inOut",
           repeat: -1,
           yoyo: true,
-          stagger: 0.4
+          stagger: 0.4,
+          paused: true
+        });
+
+        ScrollTrigger.create({
+          trigger: heroRef.current,
+          start: "top bottom",
+          end: "bottom top",
+          onEnter: () => orbTween.play(),
+          onEnterBack: () => orbTween.play(),
+          onLeave: () => orbTween.pause(),
+          onLeaveBack: () => orbTween.pause()
         });
       }
     },

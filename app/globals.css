@@ -112,10 +112,10 @@ select {
 }
 
 .glass {
-  background: rgba(5, 7, 10, 0.72);
+  background: rgba(5, 7, 10, 0.88);
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 18px 54px rgba(0, 0, 0, 0.24);
-  backdrop-filter: blur(18px);
+  backdrop-filter: blur(10px);
 }
 
 .grid-mask {
@@ -147,9 +147,8 @@ select {
 }
 
 .hero-aurora {
-  filter: blur(54px);
-  mix-blend-mode: screen;
-  opacity: 0.9;
+  filter: blur(36px);
+  opacity: 0.82;
 }
 
 .hero-aurora-main {
@@ -293,7 +292,6 @@ select {
 .magnetic-button {
   position: relative;
   overflow: hidden;
-  will-change: transform;
 }
 
 .magnetic-button:hover {
@@ -309,15 +307,10 @@ select {
   z-index: 1;
 }
 
-[data-reveal-item] {
-  will-change: transform, opacity;
-}
-
 .spotlight-card {
   position: relative;
   overflow: hidden;
   transform-style: preserve-3d;
-  will-change: transform, opacity;
 }
 
 .spotlight-card::before {
@@ -344,7 +337,6 @@ select {
     0 34px 96px rgba(0, 0, 0, 0.42),
     0 0 0 1px rgba(200, 169, 106, 0.22),
     0 0 68px rgba(110, 139, 255, 0.2);
-  transform: translateY(-12px);
 }
 
 .wow-section {
@@ -403,7 +395,7 @@ select {
 
 @media (max-width: 767px) {
   .hero-aurora {
-    filter: blur(30px);
+    filter: blur(22px);
   }
 
   .hero-orb {

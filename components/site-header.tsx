@@ -45,10 +45,21 @@ export function SiteHeader() {
   );
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const next = window.scrollY > 20;
+      setScrolled((current) => (current === next ? current : next));
+    };
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   const active = navigation.find((group) => group.title === activeGroup);

@@ -6,7 +6,7 @@ export function Card({ className, ...props }: React.HTMLAttributes<HTMLDivElemen
     <div
       data-reveal-item
       className={cn(
-        "spotlight-card interactive-target rounded-[8px] border border-line bg-white/[0.035] shadow-[0_24px_80px_rgba(0,0,0,0.18)] transition duration-300",
+        "spotlight-card interactive-target rounded-[8px] border border-line bg-white/[0.035] shadow-[0_24px_80px_rgba(0,0,0,0.18)] transition-[border-color,box-shadow,background-color] duration-300",
         className
       )}
       {...props}

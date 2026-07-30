@@ -10,8 +10,8 @@ const TABLET_SNAP_THRESHOLD = 0.45;
 const FAST_SCROLL_RELAXED_THRESHOLD = 0.24;
 const FAST_SCROLL_VELOCITY = 1.05;
 const TABLET_FAST_SCROLL_VELOCITY = 1.45;
-const SNAP_DURATION = 1;
-const SNAP_NAV_PAUSE_MS = 1400;
+const SNAP_DURATION = 0.88;
+const SNAP_NAV_PAUSE_MS = 1100;
 const HEADER_OFFSET = 92;
 const MAX_SNAP_SECTION_RATIO = 1.7;
 
@@ -31,14 +31,16 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
     const fastVelocityThreshold = isTablet ? TABLET_FAST_SCROLL_VELOCITY : FAST_SCROLL_VELOCITY;
 
     const lenis = new Lenis({
-      duration: isTouch ? 0.9 : 1.22,
+      duration: isTouch ? 0.82 : 0.94,
       smoothWheel: true,
       easing: easeOutExpo,
-      wheelMultiplier: 0.82,
-      touchMultiplier: 1.15
+      wheelMultiplier: 0.95,
+      touchMultiplier: 1.08
     });
 
     let rafId = 0;
+    let refreshFrame = 0;
+    let routeRefreshTimer = 0;
     let pauseSnapUntil = 0;
     let isSnapping = false;
     let lastScroll = window.scrollY;
@@ -46,28 +48,44 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
     let lastDirection = 1;
     let maxGestureVelocity = 0;
     let gestureStartIndex = 0;
+    let sections: HTMLElement[] = [];
+    let sectionTops: number[] = [];
 
-    const getSectionTop = (section: HTMLElement) => {
+    const getElementTop = (section: HTMLElement) => {
       const rawTop = section.getBoundingClientRect().top + window.scrollY;
       return Math.max(0, rawTop - (rawTop > 8 ? HEADER_OFFSET : 0));
     };
 
-    const getSnapSections = () => {
-      const viewportHeight = window.innerHeight;
+    const refreshSnapSections = () => {
+      refreshFrame = 0;
 
-      return Array.from(document.querySelectorAll<HTMLElement>("main > section")).filter((section) => {
+      if (!snapEnabled) {
+        sections = [];
+        sectionTops = [];
+        return;
+      }
+
+      const viewportHeight = window.innerHeight;
+      sections = Array.from(document.querySelectorAll<HTMLElement>("main > section")).filter((section) => {
         if (section.dataset.snapSkip === "true") return false;
         if (section.offsetHeight < 220) return false;
         if (section.offsetHeight > viewportHeight * MAX_SNAP_SECTION_RATIO) return false;
         return section.getBoundingClientRect().width > 0;
       });
+      sectionTops = sections.map(getElementTop);
+      gestureStartIndex = getCurrentIndex(window.scrollY);
     };
 
-    const getCurrentIndex = (sections: HTMLElement[], scrollY: number) => {
+    const queueSectionRefresh = () => {
+      if (refreshFrame) cancelAnimationFrame(refreshFrame);
+      refreshFrame = requestAnimationFrame(refreshSnapSections);
+    };
+
+    function getCurrentIndex(scrollY: number) {
       let index = 0;
 
-      for (let i = 0; i < sections.length; i += 1) {
-        if (getSectionTop(sections[i]) <= scrollY + 4) {
+      for (let i = 0; i < sectionTops.length; i += 1) {
+        if (sectionTops[i] <= scrollY + 4) {
           index = i;
         } else {
           break;
@@ -75,12 +93,14 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
       }
 
       return index;
-    };
+    }
 
-    const scrollToSection = (section: HTMLElement) => {
-      const targetTop = getSectionTop(section);
+    const scrollToSection = (index: number) => {
+      const targetTop = sectionTops[index];
+      if (typeof targetTop !== "number") return;
+
       isSnapping = true;
-      pauseSnapUntil = performance.now() + SNAP_DURATION * 1000 + 220;
+      pauseSnapUntil = performance.now() + SNAP_DURATION * 1000 + 180;
 
       lenis.scrollTo(targetTop, {
         duration: SNAP_DURATION,
@@ -93,16 +113,13 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
     };
 
     const evaluateImmediateSnap = (scrollY: number) => {
-      if (!snapEnabled || isSnapping || performance.now() < pauseSnapUntil) {
+      if (!snapEnabled || sections.length < 2 || isSnapping || performance.now() < pauseSnapUntil) {
         maxGestureVelocity = 0;
         return;
       }
 
-      const sections = getSnapSections();
-      if (sections.length < 2) return;
-
       const viewportHeight = window.innerHeight;
-      const currentIndex = getCurrentIndex(sections, scrollY);
+      const currentIndex = getCurrentIndex(scrollY);
       const relaxedThreshold = Math.min(snapThreshold, FAST_SCROLL_RELAXED_THRESHOLD);
       const fastGesture = maxGestureVelocity >= fastVelocityThreshold;
       let targetIndex: number | null = null;
@@ -110,28 +127,27 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
       if (lastDirection >= 0) {
         const nextIndex = Math.min(currentIndex + 1, sections.length - 1);
         const nextVisibleRatio =
-          nextIndex === currentIndex ? 0 : (scrollY + viewportHeight - getSectionTop(sections[nextIndex])) / viewportHeight;
+          nextIndex === currentIndex ? 0 : (scrollY + viewportHeight - sectionTops[nextIndex]) / viewportHeight;
         const shouldAdvance = nextVisibleRatio >= snapThreshold || (fastGesture && nextVisibleRatio >= relaxedThreshold);
         targetIndex = shouldAdvance && nextIndex !== currentIndex ? nextIndex : null;
       } else {
         const nextIndex = Math.min(currentIndex + 1, sections.length - 1);
 
-        if (nextIndex > currentIndex && scrollY < getSectionTop(sections[nextIndex]) - 4) {
-          const previousVisibleRatio = (getSectionTop(sections[nextIndex]) - scrollY) / viewportHeight;
-          const shouldReturn = previousVisibleRatio >= snapThreshold || (fastGesture && previousVisibleRatio >= relaxedThreshold);
+        if (nextIndex > currentIndex && scrollY < sectionTops[nextIndex] - 4) {
+          const previousVisibleRatio = (sectionTops[nextIndex] - scrollY) / viewportHeight;
+          const shouldReturn =
+            previousVisibleRatio >= snapThreshold || (fastGesture && previousVisibleRatio >= relaxedThreshold);
           targetIndex = shouldReturn ? currentIndex : null;
         }
       }
 
-      if (targetIndex === null) {
-        return;
-      }
+      if (targetIndex === null) return;
 
       targetIndex = Math.max(gestureStartIndex - 1, Math.min(gestureStartIndex + 1, targetIndex));
       maxGestureVelocity = 0;
 
-      if (Math.abs(getSectionTop(sections[targetIndex]) - scrollY) > 8) {
-        scrollToSection(sections[targetIndex]);
+      if (Math.abs(sectionTops[targetIndex] - scrollY) > 8) {
+        scrollToSection(targetIndex);
       }
     };
 
@@ -154,9 +170,10 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
       lastTime = now;
       ScrollTrigger.update();
 
-      if (!isSnapping && performance.now() >= pauseSnapUntil) {
-        const sections = getSnapSections();
-        gestureStartIndex = sections.length > 0 ? getCurrentIndex(sections, currentScroll) : 0;
+      if (!snapEnabled) return;
+
+      if (!isSnapping && now >= pauseSnapUntil) {
+        gestureStartIndex = getCurrentIndex(currentScroll);
       }
 
       evaluateImmediateSnap(currentScroll);
@@ -183,13 +200,13 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
       event.preventDefault();
       isSnapping = true;
 
-      lenis.scrollTo(Math.max(0, targetSection.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET), {
+      lenis.scrollTo(getElementTop(targetSection), {
         duration: SNAP_DURATION,
         easing: easeOutExpo,
         lock: true,
         onComplete: () => {
           isSnapping = false;
-          pauseSnapUntil = performance.now() + 420;
+          pauseSnapUntil = performance.now() + 320;
         }
       });
     };
@@ -197,6 +214,9 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
     const handleRouteTransition = () => {
       pauseSnapUntil = performance.now() + SNAP_NAV_PAUSE_MS;
       maxGestureVelocity = 0;
+      queueSectionRefresh();
+      window.clearTimeout(routeRefreshTimer);
+      routeRefreshTimer = window.setTimeout(queueSectionRefresh, 360);
     };
 
     const raf = (time: number) => {
@@ -204,15 +224,32 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
       rafId = requestAnimationFrame(raf);
     };
 
+    const main = document.querySelector("main");
+    const resizeObserver = snapEnabled && main ? new ResizeObserver(queueSectionRefresh) : null;
+    resizeObserver?.observe(main as Element);
+
+    const mutationObserver = snapEnabled && main ? new MutationObserver(queueSectionRefresh) : null;
+    mutationObserver?.observe(main as Element, { childList: true });
+
     lenis.on("scroll", handleLenisScroll);
     document.addEventListener("click", handleDocumentClick, true);
+    window.addEventListener("resize", queueSectionRefresh, { passive: true });
     window.addEventListener("yan:route-transition", handleRouteTransition);
+    ScrollTrigger.addEventListener("refresh", queueSectionRefresh);
+    document.fonts?.ready.then(queueSectionRefresh);
+    queueSectionRefresh();
     rafId = requestAnimationFrame(raf);
 
     return () => {
       cancelAnimationFrame(rafId);
+      cancelAnimationFrame(refreshFrame);
+      window.clearTimeout(routeRefreshTimer);
+      resizeObserver?.disconnect();
+      mutationObserver?.disconnect();
       document.removeEventListener("click", handleDocumentClick, true);
+      window.removeEventListener("resize", queueSectionRefresh);
       window.removeEventListener("yan:route-transition", handleRouteTransition);
+      ScrollTrigger.removeEventListener("refresh", queueSectionRefresh);
       lenis.off("scroll", handleLenisScroll);
       lenis.destroy();
     };

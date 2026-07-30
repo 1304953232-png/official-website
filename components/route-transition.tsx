@@ -57,9 +57,9 @@ export function RouteTransition() {
     timeline
       .to(slices, {
         xPercent: 0,
-        duration: isMobile ? 0.34 : 0.42,
+        duration: isMobile ? 0.24 : 0.3,
         stagger: {
-          each: isMobile ? 0.025 : 0.035,
+          each: isMobile ? 0.018 : 0.024,
           from: "edges"
         }
       })
@@ -69,15 +69,15 @@ export function RouteTransition() {
           xPercent: (index) => (index % 2 === 0 ? 116 : -116),
           yPercent: (index) => (isMobile ? 0 : index % 2 === 0 ? -7 : 7),
           opacity: 0.98,
-          duration: isMobile ? 0.62 : 0.78,
+          duration: isMobile ? 0.4 : 0.5,
           stagger: {
-            each: isMobile ? 0.035 : 0.045,
+            each: isMobile ? 0.022 : 0.028,
             from: "center"
           }
         },
-        isMobile ? 0.28 : 0.34
+        isMobile ? 0.2 : 0.24
       )
-      .to(root, { autoAlpha: 0, pointerEvents: "none", duration: 0.18 }, isMobile ? 0.86 : 1.04);
+      .to(root, { autoAlpha: 0, pointerEvents: "none", duration: 0.12 }, isMobile ? 0.58 : 0.7);
 
     return () => {
       timeline.kill();
